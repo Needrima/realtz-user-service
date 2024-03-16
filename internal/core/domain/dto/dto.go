@@ -19,6 +19,12 @@ type SendOtpDto struct {
 	Channel string `json:"channel" bson:"channel" binding:"required,eq=sms|eq=email|eq=all"`
 }
 
+type SendOtpOnboardingDto struct {
+	Channel string `json:"channel" bson:"channel" binding:"required,eq=sms|eq=email|eq=all"`
+	Email    string `json:"email" bson:"email" binding:"required_if=Channel email,email"`
+	PhoneNumber     string `json:"phone_number" bson:"phone_number" binding:"required_if=Channel sms,valid_phone_number"`
+}
+
 type VerifyEmailDto struct {
 	OTP                string `json:"otp" binding:"required,len=6"`
 	OTPverificationKey string `json:"otp_verification_key" binding:"required"`

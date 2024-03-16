@@ -28,6 +28,7 @@ func SetupRouter(handler handler.HttpHandler) *gin.Engine {
 		userApiGroup.POST("/verify-email", handler.VerifyEmailOnboarding)
 		userApiGroup.POST("/start-password-recovery", handler.StartPasswordRecovery)
 		userApiGroup.POST("/complete-password-recovery", handler.CompletePasswordRecovery)
+		userApiGroup.POST("/send-otp", handler.SendOTPOnBoarding)
 	}
 
 	userApiAuthGroup := router.Group("/api/user/auth")

@@ -143,6 +143,52 @@ func (h HttpHandler) SendOTP(c *gin.Context) {
 	c.JSON(200, response)
 }
 
+// @Summary Send OTP onboarding
+// @Description Send OTP for different verification processes during onboarding
+// @Tags User
+// @Accept json
+// @Produce json
+// @Param Token header string true "Authentication token"
+// @Success 200 {object} interface{} "OTP sent successfully"
+// @Failure 500 {object} errorHelper.ServiceError "something went wrong"
+// @Param requestBody body dto.SendOtpOnboardingDto true "Send OTP request body"
+// @Router /send-otp [post]
+func (h HttpHandler) SendOTPOnBoarding(c *gin.Context) {
+	body := dto.SendOtpOnboardingDto{}
+	if err := c.BindJSON(&body); err != nil {
+		logHelper.LogEvent(logHelper.ErrorLog, "binding send otp request body: "+err.Error())
+		if validationErrs, ok := err.(validator.ValidationErrors); ok {
+			errFields := []string{}
+			for _, valErr := range validationErrs {
+				errFields = append(errFields, valErr.Field())
+			}
+
+			c.AbortWithStatusJSON(400, gin.H{"error": "invalid input in fields: " + strings.Join(errFields, ",")})
+			return
+		}
+
+		c.AbortWithStatusJSON(400, gin.H{"error": "invalid request body: " + err.Error()})
+		return
+	}
+
+	currentUser := entity.User{
+		Email: body.Email,
+		PhoneNumber: body.PhoneNumber,
+	}
+
+	sendOtpDto := dto.SendOtpDto{
+		Channel: body.Channel,
+	}
+
+	response, err := h.httpPort.SendOTP(c.Request.Context(), currentUser, sendOtpDto)
+	if err != nil {
+		c.AbortWithStatusJSON(err.(errorHelper.ServiceError).Code, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(200, response)
+}
+
 // @Summary Verify email
 // @Description Verify email when user skipped email verification during onboarding
 // @Tags User
