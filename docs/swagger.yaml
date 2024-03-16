@@ -1,0 +1,502 @@
+definitions:
+  dto.CompletePasswordRecoveryDto:
+    properties:
+      confirm_password:
+        type: string
+      email:
+        type: string
+      new_password:
+        minLength: 3
+        type: string
+      otp:
+        type: string
+      otp_verification_key:
+        type: string
+    required:
+    - confirm_password
+    - email
+    - new_password
+    - otp
+    - otp_verification_key
+    type: object
+  dto.LoginDto:
+    properties:
+      email:
+        type: string
+      password:
+        minLength: 3
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  dto.SendOtpDto:
+    properties:
+      channel:
+        type: string
+    required:
+    - channel
+    type: object
+  dto.SignupDto:
+    properties:
+      confirm_password:
+        type: string
+      email:
+        type: string
+      firstname:
+        minLength: 3
+        type: string
+      lastname:
+        minLength: 3
+        type: string
+      password:
+        minLength: 6
+        type: string
+      phone_number:
+        type: string
+      user_type:
+        type: string
+    required:
+    - confirm_password
+    - email
+    - firstname
+    - lastname
+    - password
+    - phone_number
+    - user_type
+    type: object
+  dto.StartPasswordRecoveryDto:
+    properties:
+      email:
+        type: string
+    required:
+    - email
+    type: object
+  dto.UpdatePhoneNumberDto:
+    properties:
+      phone_number:
+        type: string
+    required:
+    - phone_number
+    type: object
+  dto.VerifyBvnDto:
+    properties:
+      bvn:
+        type: string
+      otp:
+        type: string
+      otp_verification_key:
+        type: string
+    required:
+    - bvn
+    - otp
+    - otp_verification_key
+    type: object
+  dto.VerifyEmailDto:
+    properties:
+      otp:
+        type: string
+      otp_verification_key:
+        type: string
+    required:
+    - otp
+    - otp_verification_key
+    type: object
+  dto.VerifyEmailOnboardingDto:
+    properties:
+      email:
+        type: string
+      otp:
+        type: string
+      otp_verification_key:
+        type: string
+    required:
+    - email
+    - otp
+    - otp_verification_key
+    type: object
+  dto.VerifyPhoneNumerDto:
+    properties:
+      otp:
+        type: string
+      otp_verification_key:
+        type: string
+    required:
+    - otp
+    - otp_verification_key
+    type: object
+  helpers.ServiceError:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /auth/get-user/{user_reference}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve user by user reference
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: reference of the user to be queried
+        in: path
+        name: user_reference
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User retrieved successfully
+          schema:
+            type: string
+        "404":
+          description: user not found
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Get User
+      tags:
+      - User
+  /auth/logout:
+    get:
+      consumes:
+      - application/json
+      description: Unauthnticate a user
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Logout successfully
+          schema:
+            type: string
+        "404":
+          description: user doesn't exist
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Logout
+      tags:
+      - User
+  /auth/send-otp:
+    post:
+      consumes:
+      - application/json
+      description: Send OTP for different verification processes
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: Send OTP request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.SendOtpDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OTP sent successfully
+          schema:
+            type: object
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Send OTP
+      tags:
+      - User
+  /auth/update-phone:
+    post:
+      consumes:
+      - application/json
+      description: Add or change user's phone number
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: Udpate phone number request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdatePhoneNumberDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Phone number added / changed successfully
+          schema:
+            type: object
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Update Phone Number
+      tags:
+      - User
+  /auth/verify-bvn:
+    post:
+      consumes:
+      - application/json
+      description: Verify a user's bank verification number
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: Verify phone number request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.VerifyBvnDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: BVN verified successfully
+          schema:
+            type: object
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Verify BVN
+      tags:
+      - User
+  /auth/verify-email:
+    post:
+      consumes:
+      - application/json
+      description: Verify email when user skipped email verification during onboarding
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: Verify email request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.VerifyEmailDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Email verified successfully
+          schema:
+            type: object
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Verify email
+      tags:
+      - User
+  /auth/verify-phone:
+    post:
+      consumes:
+      - application/json
+      description: Verify a user's phone number
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: Verify phone number request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.VerifyPhoneNumerDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Phone number verified successfully
+          schema:
+            type: object
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Verify update Phone Number
+      tags:
+      - User
+  /complete-password-recovery:
+    post:
+      consumes:
+      - application/json
+      description: Change User password
+      parameters:
+      - description: Complete password recovery request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CompletePasswordRecoveryDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Password changed successfully
+          schema:
+            type: string
+        "404":
+          description: user doesn't exist
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Complete Password recovery
+      tags:
+      - User
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: Login to account
+      parameters:
+      - description: Login request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.LoginDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Login succesful
+          schema:
+            type: object
+        "404":
+          description: user not found
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Login
+      tags:
+      - User
+  /signup:
+    post:
+      consumes:
+      - application/json
+      description: Registering a new user
+      parameters:
+      - description: Signuprequest body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.SignupDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User Created Successfully
+          schema:
+            type: object
+        "409":
+          description: user already exists
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Signup
+      tags:
+      - User
+  /start-password-recovery:
+    post:
+      consumes:
+      - application/json
+      description: Send OTP when user forget's password and tries recovering it
+      parameters:
+      - description: Start password recovery request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.StartPasswordRecoveryDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OTP sent
+          schema:
+            type: string
+        "404":
+          description: user doesn't exist
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Start Password recovery
+      tags:
+      - User
+  /verify-email:
+    post:
+      consumes:
+      - application/json
+      description: Verify email when user is just signing up
+      parameters:
+      - description: Verify email request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.VerifyEmailOnboardingDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Email verified successfully
+          schema:
+            type: object
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Verify email on onboarding
+      tags:
+      - User
+swagger: "2.0"

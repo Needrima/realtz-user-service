@@ -1,0 +1,362 @@
+{"@timestamp":"2023-11-21T11:17:56+01:00","level":"Info","app_name":"realtz-user-service","message":{"ServiceName":"realtz-user-service","ServiceHost":"http://localhost","ServicePort":"30000","MongoDBConnString":"mongodb://localhost:27017","RedisConnString":"localhost:6379","LogDir":".","LogFile":"/app.log"}}
+{"@timestamp":"2023-11-21T11:52:24+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-21T15:43:08+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T15:43:08+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T15:43:08+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-21T15:58:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T15:58:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T15:58:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-21T16:04:27+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.Firstname' Error:Field validation for 'Firstname' failed on the 'min' tag"}
+{"@timestamp":"2023-11-21T16:04:39+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.Lastname' Error:Field validation for 'Lastname' failed on the 'min' tag"}
+{"@timestamp":"2023-11-21T16:04:50+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.Email' Error:Field validation for 'Email' failed on the 'email' tag"}
+{"@timestamp":"2023-11-21T16:04:58+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.PhoneNumber' Error:Field validation for 'PhoneNumber' failed on the 'valid_phone_number' tag"}
+{"@timestamp":"2023-11-21T16:05:11+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.Password' Error:Field validation for 'Password' failed on the 'min' tag\nKey: 'SignupDto.ConfirmPassword' Error:Field validation for 'ConfirmPassword' failed on the 'eqfield' tag"}
+{"@timestamp":"2023-11-21T16:05:22+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.ConfirmPassword' Error:Field validation for 'ConfirmPassword' failed on the 'eqfield' tag"}
+{"@timestamp":"2023-11-21T16:05:33+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.PhoneNumber' Error:Field validation for 'PhoneNumber' failed on the 'valid_phone_number' tag"}
+{"@timestamp":"2023-11-21T16:05:43+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-21T16:05:43+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-21T16:06:41+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-21T16:06:41+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-21T16:07:53+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-21T16:07:53+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-21T19:04:01+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T19:04:01+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T19:04:01+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp [::1]:6379: connect: connection refused"}
+{"@timestamp":"2023-11-21T19:05:45+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T19:05:45+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T19:05:45+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-21T19:08:33+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for login request for user email oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-21T19:10:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T19:10:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T19:10:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-21T19:10:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for login request for user email oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-21T19:11:03+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for login request for user email oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-21T19:43:36+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T19:43:36+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T19:43:36+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-21T19:46:03+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding send otp request body: invalid character '}' looking for beginning of object key string"}
+{"@timestamp":"2023-11-21T19:47:03+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding send otp request body: Key: 'SendOtpDto.Channel' Error:Field validation for 'Channel' failed on the 'eq=sms|eq=email|eq=all' tag"}
+{"@timestamp":"2023-11-21T19:50:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T19:50:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-21T19:50:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-23T13:01:00+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-23T13:01:00+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-23T13:01:00+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-23T19:21:42+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-23T19:21:42+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-23T19:21:42+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-24T14:30:44+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T14:30:44+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T14:30:44+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-24T14:32:39+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-24T14:32:39+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-24T14:33:18+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-24T14:33:18+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-24T14:33:19+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-24T14:36:39+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-24T14:36:39+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-24T14:36:54+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-24T14:36:54+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-24T14:36:55+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-24T14:38:54+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-24T14:38:54+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-24T14:38:55+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-24T14:48:36+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T14:48:36+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T14:48:36+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-24T14:49:24+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T14:49:24+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T14:49:24+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-24T14:49:59+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-24T14:49:59+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-24T14:49:59+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-24T15:11:22+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T15:11:22+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T15:11:22+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-24T15:13:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T15:13:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T15:13:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-24T15:16:56+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T15:16:56+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T15:16:56+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-24T15:17:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T15:17:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-24T15:17:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-25T10:12:25+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:12:25+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:12:26+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-25T10:13:15+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:13:15+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:13:15+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-25T10:16:45+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:16:45+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:16:45+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-25T10:23:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:23:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:23:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-25T10:23:48+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:23:48+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:23:49+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-25T10:24:44+01:00","level":"ERROR","app_name":"realtz-user-service","message":"Error validationg otp"}
+{"@timestamp":"2023-11-25T10:25:53+01:00","level":"ERROR","app_name":"realtz-user-service","message":"Error validationg otp"}
+{"@timestamp":"2023-11-25T10:27:11+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:27:11+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:27:11+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-25T10:27:28+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:27:28+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:27:28+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-25T10:27:45+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:27:45+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:27:45+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-25T10:28:32+01:00","level":"ERROR","app_name":"realtz-user-service","message":"Error validationg otp"}
+{"@timestamp":"2023-11-25T10:36:52+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:36:52+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:37:05+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:37:05+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:37:05+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-25T10:37:54+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T10:37:54+01:00","level":"ERROR","app_name":"realtz-user-service","message":"could not update user: update document must contain key beginning with '$'"}
+{"@timestamp":"2023-11-25T10:39:52+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:39:52+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:39:52+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-25T10:40:25+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:40:25+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:40:26+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-25T10:40:52+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T10:40:52+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2023-11-25T10:42:35+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T10:43:07+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: mongo: no documents in result"}
+{"@timestamp":"2023-11-25T10:43:07+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T10:43:07+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2023-11-25T10:44:46+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: mongo: no documents in result"}
+{"@timestamp":"2023-11-25T10:44:46+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T10:44:46+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2023-11-25T10:46:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:46:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:46:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-25T10:46:25+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: mongo: no documents in result"}
+{"@timestamp":"2023-11-25T10:46:25+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T10:46:25+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2023-11-25T10:57:54+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:57:54+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T10:57:54+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-25T10:58:40+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:58:40+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-25T10:58:40+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-25T10:59:23+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T10:59:23+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2023-11-25T10:59:49+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T11:00:18+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: mongo: no documents in result"}
+{"@timestamp":"2023-11-25T11:00:18+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T11:00:18+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2023-11-25T11:02:01+01:00","level":"ERROR","app_name":"realtz-user-service","message":"Error validationg otp"}
+{"@timestamp":"2023-11-25T11:02:25+01:00","level":"ERROR","app_name":"realtz-user-service","message":"Error validationg otp"}
+{"@timestamp":"2023-11-25T11:02:42+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with phone number: +2348105658203"}
+{"@timestamp":"2023-11-25T11:02:42+01:00","level":"ERROR","app_name":"realtz-user-service","message":"phone number taken by another user"}
+{"@timestamp":"2023-11-25T11:02:58+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: mongo: no documents in result"}
+{"@timestamp":"2023-11-25T11:02:58+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T11:02:58+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2023-11-25T11:03:18+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T11:03:18+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2023-11-25T11:05:35+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T11:05:35+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T11:05:35+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-25T11:06:35+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: mongo: no documents in result"}
+{"@timestamp":"2023-11-25T11:06:35+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T11:06:35+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2023-11-25T11:07:04+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T11:07:04+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2023-11-25T11:09:56+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T11:09:56+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-25T11:09:56+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-25T11:10:20+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T11:11:05+01:00","level":"ERROR","app_name":"realtz-user-service","message":"Error validatng otp"}
+{"@timestamp":"2023-11-25T11:11:29+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T11:12:22+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T11:12:22+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2023-11-25T11:13:06+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T11:13:11+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-25T11:17:22+01:00","level":"ERROR","app_name":"realtz-user-service","message":"invalid token"}
+{"@timestamp":"2023-11-30T10:47:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T10:47:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T10:47:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-30T10:49:19+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T10:49:19+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T10:49:19+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-30T11:53:51+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T11:53:51+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T11:53:51+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-30T12:10:55+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T12:10:55+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T12:10:55+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-30T12:17:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T12:17:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T12:17:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-30T12:18:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T12:18:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T12:18:54+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T12:18:54+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T12:18:55+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-30T13:11:10+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T13:11:10+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T13:11:10+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-30T13:17:00+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T13:17:00+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T13:17:00+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-30T13:20:14+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T13:20:14+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T13:20:14+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-30T13:21:03+01:00","level":"ERROR","app_name":"realtz-user-service","message":"Error validationg otp"}
+{"@timestamp":"2023-11-30T13:22:53+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T13:22:53+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T13:22:53+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-30T13:23:46+01:00","level":"ERROR","app_name":"realtz-user-service","message":"Error validationg otp"}
+{"@timestamp":"2023-11-30T13:36:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T13:36:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T13:36:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-30T13:36:22+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T13:36:22+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T13:36:23+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-30T13:37:04+01:00","level":"ERROR","app_name":"realtz-user-service","message":"Error validationg otp"}
+{"@timestamp":"2023-11-30T13:38:42+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T13:38:42+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-11-30T13:38:42+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-11-30T13:39:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T13:39:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2023-11-30T13:39:16+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2023-11-30T13:40:10+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2023-11-30T13:40:10+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2023-12-11T21:06:45+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-12-11T21:06:45+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-12-11T21:06:45+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-12-12T00:49:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-12-12T00:49:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-12-12T00:49:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-12-12T00:53:08+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-12-12T00:53:08+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-12-12T00:53:08+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2023-12-21T15:38:01+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-12-21T15:38:01+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2023-12-21T15:38:01+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-01-09T21:05:54+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-01-09T21:05:54+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-01-09T21:06:01+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-01-13T16:44:12+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-01-13T16:44:13+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-01-13T16:44:13+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-01-14T23:23:13+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-01-14T23:23:13+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-01-14T23:23:13+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-01-28T00:13:38+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-01-28T00:13:38+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-01-28T00:13:38+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-01-28T00:13:38+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not start server listen tcp :30000: bind: address already in use"}
+{"@timestamp":"2024-01-28T00:14:20+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-01-28T00:14:21+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-01-28T00:14:21+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-01-28T00:19:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-01-28T00:19:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-01-28T00:19:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:04:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:04:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:04:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:06:11+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for amirdeen oyebode"}
+{"@timestamp":"2024-03-16T04:06:51+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:06:51+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:06:51+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:07:24+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.PhoneNumber' Error:Field validation for 'PhoneNumber' failed on the 'valid_phone_number' tag"}
+{"@timestamp":"2024-03-16T04:08:39+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.PhoneNumber' Error:Field validation for 'PhoneNumber' failed on the 'valid_phone_number' tag"}
+{"@timestamp":"2024-03-16T04:09:26+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for amirdeen oyebode"}
+{"@timestamp":"2024-03-16T04:09:37+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:09:37+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:09:37+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:09:57+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.PhoneNumber' Error:Field validation for 'PhoneNumber' failed on the 'valid_phone_number' tag"}
+{"@timestamp":"2024-03-16T04:12:52+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:12:52+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:12:52+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:16:01+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.Password' Error:Field validation for 'Password' failed on the 'valid_password' tag\nKey: 'SignupDto.ConfirmPassword' Error:Field validation for 'ConfirmPassword' failed on the 'eqfield' tag"}
+{"@timestamp":"2024-03-16T04:16:12+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for amirdeen oyebode"}
+{"@timestamp":"2024-03-16T04:16:25+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:16:25+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:16:25+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:24:11+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:24:11+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:24:11+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:25:24+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:25:24+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:25:24+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:25:41+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:25:41+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:25:41+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:26:10+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:26:10+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:26:10+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:27:52+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:27:52+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:27:52+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:28:19+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.Password' Error:Field validation for 'Password' failed on the 'valid_password' tag"}
+{"@timestamp":"2024-03-16T04:35:19+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:35:19+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:35:19+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:35:37+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:35:37+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:35:37+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:35:55+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:35:55+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:35:55+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:36:02+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.ConfirmPassword' Error:Field validation for 'ConfirmPassword' failed on the 'eqfield' tag"}
+{"@timestamp":"2024-03-16T04:36:19+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.ConfirmPassword' Error:Field validation for 'ConfirmPassword' failed on the 'alphanum' tag"}
+{"@timestamp":"2024-03-16T04:36:33+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:36:33+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:36:33+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:36:44+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.ConfirmPassword' Error:Field validation for 'ConfirmPassword' failed on the 'alphanum' tag"}
+{"@timestamp":"2024-03-16T04:37:32+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:37:32+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:37:32+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:37:40+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for amirdeen oyebode"}
+{"@timestamp":"2024-03-16T04:37:47+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:37:47+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:37:47+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:46:21+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:46:21+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:46:21+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:46:39+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.Password' Error:Field validation for 'Password' failed on the 'valid_password' tag"}
+{"@timestamp":"2024-03-16T04:47:04+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for amirdeen oyebode"}
+{"@timestamp":"2024-03-16T04:47:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user amirdeen oyebode"}
+{"@timestamp":"2024-03-16T04:47:07+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-03-16T04:47:47+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for amirdeen oyebode"}
+{"@timestamp":"2024-03-16T04:47:49+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user amirdeen oyebode"}
+{"@timestamp":"2024-03-16T04:47:49+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: oyebodeamirdeen@gmail.com, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-16T04:47:49+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: mongo: no documents in result"}
+{"@timestamp":"2024-03-16T04:47:49+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: amirdeen, Lastname: oyebode"}
+{"@timestamp":"2024-03-16T04:48:54+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding login request body: Key: 'LoginDto.Password' Error:Field validation for 'Password' failed on the 'alphanum' tag"}
+{"@timestamp":"2024-03-16T04:49:38+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:49:38+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:49:38+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:49:41+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirden@gmail.com"}
+{"@timestamp":"2024-03-16T04:50:21+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirden@gmail.com"}
+{"@timestamp":"2024-03-16T04:50:48+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:50:48+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:50:48+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:52:19+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:52:19+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:52:19+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:52:31+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirden@gmail.com"}
+{"@timestamp":"2024-03-16T04:53:29+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:53:29+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:53:29+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-16T04:53:38+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: oyebodeamirden@gmail.com, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-16T04:54:06+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for amirdeen oyebode"}
+{"@timestamp":"2024-03-16T04:54:06+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user amirdeen oyebode"}
+{"@timestamp":"2024-03-16T04:54:10+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-03-16T04:54:28+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: oyebodeamirden@gmail.com, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-16T04:54:41+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-03-16T04:54:52+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-03-16T04:55:34+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for amirdeen oyebode"}
+{"@timestamp":"2024-03-16T04:55:34+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user amirdeen oyebode"}
+{"@timestamp":"2024-03-16T04:55:34+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: oyebodeamirdeen@gmail.com, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-16T04:55:34+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: mongo: no documents in result"}
+{"@timestamp":"2024-03-16T04:55:34+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: amirdeen, Lastname: oyebode"}
+{"@timestamp":"2024-03-16T04:55:56+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:55:56+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-16T04:55:56+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}

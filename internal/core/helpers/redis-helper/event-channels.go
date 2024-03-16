@@ -1,0 +1,15 @@
+package helpers
+
+// publishing channels
+const (
+	USERCREATED         = "USERCREATED"
+	USERLOGGEDIN        = "USERLOGGEDIN"
+	SENDOTP             = "SENDOTP"
+	VERIFYEMAIL         = "VERIFYEMAIL"
+	UPDATEPHONENUMBER   = "UPDATEPHONENUMBER"
+	EMAILVERIFED        = "EMAILVERIFED"
+	PHONENUMBERVERIFIED = "PHONENUMBERVERIFIED"
+)
+
+// subscription channels
+const ()
