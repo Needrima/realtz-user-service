@@ -48,17 +48,19 @@ func (s Service) SignUp(ctx context.Context, signupDto dto.SignupDto) (interface
 	otp, key, _ := otpHelper.GenerateOTP(signupDto.Email)
 	// create event data to publish
 	eventDataToPublish := struct {
-		Contact string `json:"contact"` // phone number or email
-		Channel string `json:"channel"` // can only one of sms|email|all
-		Message string `json:"message"`
-		Subject string `json:"subject"`
-		Type string `json:"type"`
+		UserReference string `json:"user_reference" bson:"user_reference"`
+		Contact       string `json:"contact"` // phone number or email
+		Channel       string `json:"channel"` // can only one of sms|email|all
+		Message       string `json:"message"`
+		Subject       string `json:"subject"`
+		Type          string `json:"type"`
 	}{
-		Contact: signupDto.Email,
-		Channel: "email",
-		Message: fmt.Sprintf("Hi %s, \n\n Welcome to Realtz. Ready to own/rent your first property. Kindly proceed to verify your email with this OTP: %s.", signupDto.Firstname, otp),
-		Subject: "Realtz Signup Notification",
-		Type: "in_app",
+		UserReference: user.Reference,
+		Contact:       signupDto.Email,
+		Channel:       "email",
+		Message:       fmt.Sprintf("Hi %s, \n\n Welcome to Realtz. Ready to own/rent your first property. Kindly proceed to verify your email with this OTP: %s.", signupDto.Firstname, otp),
+		Subject:       "Realtz Signup Notification",
+		Type:          "in_app",
 	}
 
 	// publish data
@@ -92,17 +94,19 @@ func (s Service) Login(ctx context.Context, loginDto dto.LoginDto) (interface{},
 
 	// create event data to publish
 	eventDataToPublish := struct {
-		Contact string `json:"contact"` // phone number or email
-		Channel string `json:"channel"` // can only one of sms|email|all
-		Message string `json:"message"`
-		Subject string `json:"subject"`
-		Type string `json:"type"`
+		UserReference string `json:"user_reference" bson:"user_reference"`
+		Contact       string `json:"contact"` // phone number or email
+		Channel       string `json:"channel"` // can only one of sms|email|all
+		Message       string `json:"message"`
+		Subject       string `json:"subject"`
+		Type          string `json:"type"`
 	}{
-		Contact: user.Email,
-		Channel: "email",
-		Message: fmt.Sprintf("Welcome back %s, You logged in at %s", user.Firstname, time.Now().Format(time.RFC3339)),
-		Subject: "Realtz Login Notification",
-		Type: "in_app",
+		UserReference: user.Reference,
+		Contact:       user.Email,
+		Channel:       "email",
+		Message:       fmt.Sprintf("Welcome back %s, You logged in at %s", user.Firstname, time.Now().Format(time.RFC3339)),
+		Subject:       "Realtz Login Notification",
+		Type:          "in_app",
 	}
 
 	// publish data
@@ -144,17 +148,19 @@ func (s Service) SendOTP(ctx context.Context, currentUser entity.User, otpDto dt
 	otp, key, _ := otpHelper.GenerateOTP(contact)
 	// create event data to publish
 	eventDataToPublish := struct {
-		Contact string `json:"contact"` // phone number or email
-		Channel string `json:"channel"` // can only one of sms|email|all
-		Message string `json:"message"`
-		Subject string `json:"subject"`
-		Type string `json:"type"`
+		UserReference string `json:"user_reference" bson:"user_reference"`
+		Contact       string `json:"contact"` // phone number or email
+		Channel       string `json:"channel"` // can only one of sms|email|all
+		Message       string `json:"message"`
+		Subject       string `json:"subject"`
+		Type          string `json:"type"`
 	}{
-		Contact: contact,
-		Channel: otpDto.Channel,
-		Message: fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s. Proceed to continue verification with OTP: %s.", currentUser.Firstname, otp),
-		Subject: "Realtz OTP",
-		Type: "sending",
+		UserReference: currentUser.Reference,
+		Contact:       contact,
+		Channel:       otpDto.Channel,
+		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s. Proceed to continue verification with OTP: %s.", currentUser.Firstname, otp),
+		Subject:       "Realtz OTP",
+		Type:          "sending",
 	}
 
 	// publish data
@@ -200,17 +206,19 @@ func (s Service) VerifyEmail(ctx context.Context, currentUser entity.User, verif
 	}
 
 	eventDataToPublish := struct {
-		Contact string `json:"contact"` // phone number or email
-		Channel string `json:"channel"` // can only one of sms|email|all
-		Message string `json:"message"`
-		Subject string `json:"subject"`
-		Type string `json:"type"`
+		UserReference string `json:"user_reference" bson:"user_reference"`
+		Contact       string `json:"contact"` // phone number or email
+		Channel       string `json:"channel"` // can only one of sms|email|all
+		Message       string `json:"message"`
+		Subject       string `json:"subject"`
+		Type          string `json:"type"`
 	}{
-		Contact: user.Email,
-		Channel: "email",
-		Message: fmt.Sprintf("Hi %s.\n\n You have succesfully verified your email address. Kindly proceed to add and verify your phone number too (ignore if you have verified your phone number).", user.Firstname),
-		Subject: "Realtz Verification Notification",
-		Type: "in_app",
+		UserReference: user.Reference,
+		Contact:       user.Email,
+		Channel:       "email",
+		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully verified your email address. Kindly proceed to add and verify your phone number too (ignore if you have verified your phone number).", user.Firstname),
+		Subject:       "Realtz Verification Notification",
+		Type:          "in_app",
 	}
 
 	// publish data
@@ -254,17 +262,19 @@ func (s Service) VerifyPhoneNumber(ctx context.Context, currentUser entity.User,
 	}
 
 	eventDataToPublish := struct {
-		Contact string `json:"contact"` // phone number or email
-		Channel string `json:"channel"` // can only one of sms|email|all
-		Message string `json:"message"`
-		Subject string `json:"subject"`
-		Type string `json:"type"`
+		UserReference string `json:"user_reference" bson:"user_reference"`
+		Contact       string `json:"contact"` // phone number or email
+		Channel       string `json:"channel"` // can only one of sms|email|all
+		Message       string `json:"message"`
+		Subject       string `json:"subject"`
+		Type          string `json:"type"`
 	}{
-		Contact: user.PhoneNumber,
-		Channel: "sms",
-		Message: fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s.\n\n You have succesfully verified your phone number. Kindly proceed to add and verify your email address too (ignore if you have verified your email address).", user.Firstname),
-		Subject: "Realtz Verification Notification",
-		Type: "in_app",
+		Contact:       user.PhoneNumber,
+		UserReference: user.Reference,
+		Channel:       "sms",
+		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s.\n\n You have succesfully verified your phone number. Kindly proceed to add and verify your email address too (ignore if you have verified your email address).", user.Firstname),
+		Subject:       "Realtz Verification Notification",
+		Type:          "in_app",
 	}
 
 	// publish data
@@ -310,17 +320,19 @@ func (s Service) VerifyBvn(ctx context.Context, currentUser entity.User, verifyB
 	}
 
 	eventDataToPublish := struct {
-		Contact string `json:"contact"` // phone number or email
-		Channel string `json:"channel"` // can only one of sms|email|all
-		Message string `json:"message"`
-		Subject string `json:"subject"`
-		Type string `json:"type"`
+		UserReference string `json:"user_reference" bson:"user_reference"`
+		Contact       string `json:"contact"` // phone number or email
+		Channel       string `json:"channel"` // can only one of sms|email|all
+		Message       string `json:"message"`
+		Subject       string `json:"subject"`
+		Type          string `json:"type"`
 	}{
-		Contact: user.PhoneNumber,
-		Channel: "sms",
-		Message: fmt.Sprintf("Hi %s.\n\n You have succesfully added and verified your bvn. Kindly proceed to add and verify your email address and phone number too (ignore if you have verified your email address/phone number).", user.Firstname),
-		Subject: "Realtz Verification Notification",
-		Type: "in_app",
+		UserReference: user.Reference,
+		Contact:       user.PhoneNumber,
+		Channel:       "sms",
+		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully added and verified your bvn. Kindly proceed to add and verify your email address and phone number too (ignore if you have verified your email address/phone number).", user.Firstname),
+		Subject:       "Realtz Verification Notification",
+		Type:          "in_app",
 	}
 
 	// publish data
@@ -425,15 +437,17 @@ func (s Service) UpdatePhoneNumber(ctx context.Context, currentUser entity.User,
 	otp, key, _ := otpHelper.GenerateOTP(upddatePhoneNumberDto.PhoneNumber)
 	// create event data to publish
 	eventDataToPublish := struct {
-		Contact string `json:"contact"` // phone number or email
-		Channel string `json:"channel"` // can only one of sms|email|all
-		Message string `json:"message"`
-		Subject string `json:"subject"`
+		UserReference string `json:"user_reference" bson:"user_reference"`
+		Contact       string `json:"contact"` // phone number or email
+		Channel       string `json:"channel"` // can only one of sms|email|all
+		Message       string `json:"message"`
+		Subject       string `json:"subject"`
 	}{
-		Contact: phoneNumber,
-		Channel: "sms",
-		Message: fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s, \n\n You updated your phone number. Kindly proceed to verify your phone number with this OTP: %s.", user.Firstname, otp),
-		Subject: "Realtz Verification Notification",
+		UserReference: user.Reference,
+		Contact:       phoneNumber,
+		Channel:       "sms",
+		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s, \n\n You updated your phone number. Kindly proceed to verify your phone number with this OTP: %s.", user.Firstname, otp),
+		Subject:       "Realtz Verification Notification",
 	}
 
 	// publish data

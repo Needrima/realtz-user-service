@@ -172,7 +172,7 @@ func (h HttpHandler) SendOTPOnBoarding(c *gin.Context) {
 	}
 
 	currentUser := entity.User{
-		Email: body.Email,
+		Email:       body.Email,
 		PhoneNumber: body.PhoneNumber,
 	}
 

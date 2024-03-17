@@ -12,7 +12,7 @@ type SignupDto struct {
 
 type LoginDto struct {
 	Email    string `json:"email" bson:"email" binding:"required,email"`
-	Password        string `json:"password" bson:"password" binding:"required,valid_password"`
+	Password string `json:"password" bson:"password" binding:"required,valid_password"`
 }
 
 type SendOtpDto struct {
@@ -20,9 +20,9 @@ type SendOtpDto struct {
 }
 
 type SendOtpOnboardingDto struct {
-	Channel string `json:"channel" bson:"channel" binding:"required,eq=sms|eq=email|eq=all"`
-	Email    string `json:"email" bson:"email" binding:"required_if=Channel email,email"`
-	PhoneNumber     string `json:"phone_number" bson:"phone_number" binding:"required_if=Channel sms,valid_phone_number"`
+	Channel     string `json:"channel" bson:"channel" binding:"required,eq=sms|eq=email|eq=all"`
+	Email       string `json:"email" bson:"email" binding:"required_if=Channel email,email"`
+	PhoneNumber string `json:"phone_number" bson:"phone_number" binding:"required_if=Channel sms,valid_phone_number"`
 }
 
 type VerifyEmailDto struct {

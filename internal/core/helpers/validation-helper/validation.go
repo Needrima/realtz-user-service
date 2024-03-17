@@ -30,7 +30,7 @@ func ValidateValidPassword(fl validator.FieldLevel) bool {
 	upperCasePattern := `[A-Z]+`
 	lowerCasePattern := `[a-z]+`
 	numPattern := `[0-9]+`
-	symbolPattern :=  `[!@#$%^&*(”’)+,-./:;<=>?_^{}|~\\[\]\s]+`
+	symbolPattern := `[!@#$%^&*(”’)+,-./:;<=>?_^{}|~\\[\]\s]+`
 
 	hasUppercase := regexp.MustCompile(upperCasePattern).MatchString(password)
 	hasLowercase := regexp.MustCompile(lowerCasePattern).MatchString(password)

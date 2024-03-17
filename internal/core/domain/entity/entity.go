@@ -14,7 +14,7 @@ type User struct {
 	IsPhoneNumberVerified bool   `json:"is_phone_number_verified" bson:"is_phone_number_verified"`
 	IsBvnVerified         bool   `json:"is_bvn_verified" bson:"is_bvn_verified"`
 	IsVerified            bool   `json:"is_verified" bson:"is_verified"`
-	IsActive           	bool   `json:"is_active" bson:"is_active"`
+	IsActive              bool   `json:"is_active" bson:"is_active"`
 	CreatedOn             string `json:"created_on" bson:"created_on"`
 	LastUpdatedOn         string `json:"last_updated_on" bson:"last_updated_on"`
 }
