@@ -18,7 +18,7 @@ func ConnectToRedis() redisRepo {
 	RedisClient = redis.NewClient(&redis.Options{
 		Addr:     configHelper.ServiceConfiguration.RedisConnString,
 		DB:       0,
-		Password: "",
+		Password: configHelper.ServiceConfiguration.RedisConnPassword,
 	})
 
 	// Create a context with a timeout (adjust the timeout as needed)

@@ -14,6 +14,7 @@ type Configuration struct {
 	MongoDbDatabaseName       string `mapstructure:"MongoDB_Database_Name"`
 	MongoDBUserCollectionName string `mapstructure:"MongoDB_User_Collection_Name"`
 	RedisConnString           string `mapstructure:"Redis_Connection_String"`
+	RedisConnPassword     string `mapstructure:"Redis_Connection_Password"`
 	LogDir                    string `mapstructure:"Log_Dir"`
 	LogFile                   string `mapstructure:"Log_File"`
 	JWTTokenKey               string `mapstructure:"JWT_Token_Key"`
