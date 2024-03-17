@@ -52,11 +52,13 @@ func (s Service) SignUp(ctx context.Context, signupDto dto.SignupDto) (interface
 		Channel string `json:"channel"` // can only one of sms|email|all
 		Message string `json:"message"`
 		Subject string `json:"subject"`
+		Type string `json:"type"`
 	}{
 		Contact: signupDto.Email,
 		Channel: "email",
 		Message: fmt.Sprintf("Hi %s, \n\n Welcome to Realtz. Ready to own/rent your first property. Kindly proceed to verify your email with this OTP: %s.", signupDto.Firstname, otp),
 		Subject: "Realtz Signup Notification",
+		Type: "in_app",
 	}
 
 	// publish data
@@ -94,11 +96,13 @@ func (s Service) Login(ctx context.Context, loginDto dto.LoginDto) (interface{},
 		Channel string `json:"channel"` // can only one of sms|email|all
 		Message string `json:"message"`
 		Subject string `json:"subject"`
+		Type string `json:"type"`
 	}{
 		Contact: user.Email,
 		Channel: "email",
 		Message: fmt.Sprintf("Welcome back %s, You logged in at %s", user.Firstname, time.Now().Format(time.RFC3339)),
 		Subject: "Realtz Login Notification",
+		Type: "in_app",
 	}
 
 	// publish data
@@ -144,11 +148,13 @@ func (s Service) SendOTP(ctx context.Context, currentUser entity.User, otpDto dt
 		Channel string `json:"channel"` // can only one of sms|email|all
 		Message string `json:"message"`
 		Subject string `json:"subject"`
+		Type string `json:"type"`
 	}{
 		Contact: contact,
 		Channel: otpDto.Channel,
 		Message: fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s. Proceed to continue verification with OTP: %s.", currentUser.Firstname, otp),
-		Subject: "Realtz Login Notification",
+		Subject: "Realtz OTP",
+		Type: "sending",
 	}
 
 	// publish data
@@ -198,11 +204,13 @@ func (s Service) VerifyEmail(ctx context.Context, currentUser entity.User, verif
 		Channel string `json:"channel"` // can only one of sms|email|all
 		Message string `json:"message"`
 		Subject string `json:"subject"`
+		Type string `json:"type"`
 	}{
 		Contact: user.Email,
 		Channel: "email",
 		Message: fmt.Sprintf("Hi %s.\n\n You have succesfully verified your email address. Kindly proceed to add and verify your phone number too (ignore if you have verified your phone number).", user.Firstname),
 		Subject: "Realtz Verification Notification",
+		Type: "in_app",
 	}
 
 	// publish data
@@ -250,11 +258,13 @@ func (s Service) VerifyPhoneNumber(ctx context.Context, currentUser entity.User,
 		Channel string `json:"channel"` // can only one of sms|email|all
 		Message string `json:"message"`
 		Subject string `json:"subject"`
+		Type string `json:"type"`
 	}{
 		Contact: user.PhoneNumber,
 		Channel: "sms",
 		Message: fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s.\n\n You have succesfully verified your phone number. Kindly proceed to add and verify your email address too (ignore if you have verified your email address).", user.Firstname),
 		Subject: "Realtz Verification Notification",
+		Type: "in_app",
 	}
 
 	// publish data
@@ -304,11 +314,13 @@ func (s Service) VerifyBvn(ctx context.Context, currentUser entity.User, verifyB
 		Channel string `json:"channel"` // can only one of sms|email|all
 		Message string `json:"message"`
 		Subject string `json:"subject"`
+		Type string `json:"type"`
 	}{
 		Contact: user.PhoneNumber,
 		Channel: "sms",
 		Message: fmt.Sprintf("Hi %s.\n\n You have succesfully added and verified your bvn. Kindly proceed to add and verify your email address and phone number too (ignore if you have verified your email address/phone number).", user.Firstname),
 		Subject: "Realtz Verification Notification",
+		Type: "in_app",
 	}
 
 	// publish data
