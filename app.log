@@ -421,3 +421,16 @@
 {"@timestamp":"2024-03-17T13:50:27+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
 {"@timestamp":"2024-03-17T13:50:27+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
 {"@timestamp":"2024-03-17T13:50:31+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-17T13:53:38+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-17T13:53:39+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-17T13:53:41+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-17T13:55:32+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2024-03-17T13:55:32+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2024-03-17T13:55:32+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: oyebodeamirdeen@gmail.com, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-17T13:55:32+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: mongo: no documents in result"}
+{"@timestamp":"2024-03-17T13:55:32+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2024-03-17T14:01:58+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2024-03-17T14:01:58+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2024-03-17T14:01:58+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: oyebodeamirdeen@gmail.com, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-17T14:01:58+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: mongo: no documents in result"}
+{"@timestamp":"2024-03-17T14:01:58+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
