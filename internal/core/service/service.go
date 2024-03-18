@@ -64,7 +64,9 @@ func (s Service) SignUp(ctx context.Context, signupDto dto.SignupDto) (interface
 	}
 
 	// publish data
-	s.redisPort.PublishEvent(ctx, redisHelper.USERCREATED, eventDataToPublish)
+	if user.IsEmailVerified {
+		s.redisPort.PublishEvent(ctx, redisHelper.USERCREATED, eventDataToPublish)
+	}
 
 	// frontend response
 	signupResp := struct {
@@ -110,7 +112,9 @@ func (s Service) Login(ctx context.Context, loginDto dto.LoginDto) (interface{},
 	}
 
 	// publish data
-	s.redisPort.PublishEvent(ctx, redisHelper.USERLOGGEDIN, eventDataToPublish)
+	if user.IsEmailVerified {
+		s.redisPort.PublishEvent(ctx, redisHelper.USERLOGGEDIN, eventDataToPublish)
+	}
 
 	token, err := tokenHelper.GenerateToken(user)
 	if err != nil {
@@ -164,7 +168,9 @@ func (s Service) SendOTP(ctx context.Context, currentUser entity.User, otpDto dt
 	}
 
 	// publish data
-	s.redisPort.PublishEvent(ctx, redisHelper.SENDOTP, eventDataToPublish)
+	if currentUser.IsEmailVerified {
+		s.redisPort.PublishEvent(ctx, redisHelper.SENDOTP, eventDataToPublish)
+	}
 
 	sendOtpResp := struct {
 		OTPverificationKey string `json:"otp_verification_key"`
@@ -222,7 +228,9 @@ func (s Service) VerifyEmail(ctx context.Context, currentUser entity.User, verif
 	}
 
 	// publish data
-	s.redisPort.PublishEvent(ctx, redisHelper.EMAILVERIFED, eventDataToPublish)
+	if user.IsEmailVerified {
+		s.redisPort.PublishEvent(ctx, redisHelper.EMAILVERIFED, eventDataToPublish)
+	}
 
 	emailVerificationResponse := struct {
 		Message string `json:"message"`
@@ -278,7 +286,9 @@ func (s Service) VerifyPhoneNumber(ctx context.Context, currentUser entity.User,
 	}
 
 	// publish data
-	s.redisPort.PublishEvent(ctx, redisHelper.PHONENUMBERVERIFIED, eventDataToPublish)
+	if user.IsEmailVerified {
+		s.redisPort.PublishEvent(ctx, redisHelper.PHONENUMBERVERIFIED, eventDataToPublish)
+	}
 
 	phoneNumberVerificationResponse := struct {
 		Message string `json:"message"`
@@ -336,7 +346,9 @@ func (s Service) VerifyBvn(ctx context.Context, currentUser entity.User, verifyB
 	}
 
 	// publish data
-	s.redisPort.PublishEvent(ctx, redisHelper.PHONENUMBERVERIFIED, eventDataToPublish)
+	if user.IsEmailVerified {
+		s.redisPort.PublishEvent(ctx, redisHelper.PHONENUMBERVERIFIED, eventDataToPublish)
+	}
 
 	phoneNumberVerificationResponse := struct {
 		Message string `json:"message"`
@@ -451,7 +463,9 @@ func (s Service) UpdatePhoneNumber(ctx context.Context, currentUser entity.User,
 	}
 
 	// publish data
-	s.redisPort.PublishEvent(ctx, redisHelper.UPDATEPHONENUMBER, eventDataToPublish)
+	if user.IsEmailVerified {
+		s.redisPort.PublishEvent(ctx, redisHelper.UPDATEPHONENUMBER, eventDataToPublish)
+	}
 
 	updatePhoneNumberResp := struct {
 		OTPverificationKey string `json:"otp_verification_key"`

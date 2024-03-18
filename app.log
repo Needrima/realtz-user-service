@@ -440,3 +440,16 @@
 {"@timestamp":"2024-03-17T23:41:32+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
 {"@timestamp":"2024-03-17T23:41:32+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
 {"@timestamp":"2024-03-17T23:41:38+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-18T17:49:40+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-18T17:49:40+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-18T17:49:42+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-18T18:25:04+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2024-03-18T18:25:04+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2024-03-18T18:25:04+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-03-18T18:25:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2024-03-18T18:25:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2024-03-18T18:25:07+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-03-18T18:25:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2024-03-18T18:25:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2024-03-18T18:25:09+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-03-18T18:33:17+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
