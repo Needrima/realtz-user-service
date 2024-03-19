@@ -64,9 +64,7 @@ func (s Service) SignUp(ctx context.Context, signupDto dto.SignupDto) (interface
 	}
 
 	// publish data
-	if user.IsEmailVerified {
-		s.redisPort.PublishEvent(ctx, redisHelper.USERCREATED, eventDataToPublish)
-	}
+	s.redisPort.PublishEvent(ctx, redisHelper.USERCREATED, eventDataToPublish)
 
 	// frontend response
 	signupResp := struct {
@@ -168,9 +166,7 @@ func (s Service) SendOTP(ctx context.Context, currentUser entity.User, otpDto dt
 	}
 
 	// publish data
-	if currentUser.IsEmailVerified {
-		s.redisPort.PublishEvent(ctx, redisHelper.SENDOTP, eventDataToPublish)
-	}
+	s.redisPort.PublishEvent(ctx, redisHelper.SENDOTP, eventDataToPublish)
 
 	sendOtpResp := struct {
 		OTPverificationKey string `json:"otp_verification_key"`
@@ -222,7 +218,7 @@ func (s Service) VerifyEmail(ctx context.Context, currentUser entity.User, verif
 		UserReference: user.Reference,
 		Contact:       user.Email,
 		Channel:       "email",
-		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully verified your email address. Kindly proceed to add and verify your phone number too (ignore if you have verified your phone number).", user.Firstname),
+		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully verified your email address. Kindly proceed to add and verify your phone number too. Kindly ignore if you have verified your phone number.", user.Firstname),
 		Subject:       "Realtz Verification Notification",
 		Type:          "in_app",
 	}
@@ -280,7 +276,7 @@ func (s Service) VerifyPhoneNumber(ctx context.Context, currentUser entity.User,
 		Contact:       user.PhoneNumber,
 		UserReference: user.Reference,
 		Channel:       "sms",
-		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s.\n\n You have succesfully verified your phone number. Kindly proceed to add and verify your email address too (ignore if you have verified your email address).", user.Firstname),
+		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s.\n\n You have succesfully verified your phone number. Kindly proceed to add and verify your email address too. Kindly ignore if you have verified your email address.", user.Firstname),
 		Subject:       "Realtz Verification Notification",
 		Type:          "in_app",
 	}
@@ -340,7 +336,7 @@ func (s Service) VerifyBvn(ctx context.Context, currentUser entity.User, verifyB
 		UserReference: user.Reference,
 		Contact:       user.PhoneNumber,
 		Channel:       "sms",
-		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully added and verified your bvn. Kindly proceed to add and verify your email address and phone number too (ignore if you have verified your email address/phone number).", user.Firstname),
+		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully added and verified your bvn. Kindly proceed to add and verify your email address and phone number too. Kindly ignore if you have verified your email address/phone number.", user.Firstname),
 		Subject:       "Realtz Verification Notification",
 		Type:          "in_app",
 	}
