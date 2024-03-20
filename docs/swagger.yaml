@@ -428,11 +428,6 @@ paths:
       - application/json
       description: Send OTP for different verification processes during onboarding
       parameters:
-      - description: Authentication token
-        in: header
-        name: Token
-        required: true
-        type: string
       - description: Send OTP request body
         in: body
         name: requestBody

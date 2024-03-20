@@ -358,12 +358,12 @@ func (s Service) VerifyBvn(ctx context.Context, currentUser entity.User, verifyB
 }
 
 func (s Service) StartPasswordRecovery(ctx context.Context, startPasswordRecoveryDto dto.StartPasswordRecoveryDto) (interface{}, error) {
-	emailExists, err := s.GetUserByEmail(ctx, startPasswordRecoveryDto.Email)
+	foundUser, err := s.GetUserByEmail(ctx, startPasswordRecoveryDto.Email)
 	if err != nil {
 		return nil, err
 	}
 
-	user := emailExists.(entity.User)
+	user := foundUser.(entity.User)
 
 	return s.SendOTP(ctx, user, dto.SendOtpDto{Channel: "email"})
 }

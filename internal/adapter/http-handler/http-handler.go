@@ -148,7 +148,6 @@ func (h HttpHandler) SendOTP(c *gin.Context) {
 // @Tags User
 // @Accept json
 // @Produce json
-// @Param Token header string true "Authentication token"
 // @Success 200 {object} interface{} "OTP sent successfully"
 // @Failure 500 {object} errorHelper.ServiceError "something went wrong"
 // @Param requestBody body dto.SendOtpOnboardingDto true "Send OTP request body"

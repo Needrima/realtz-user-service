@@ -453,13 +453,6 @@ const docTemplate = `{
                 "summary": "Send OTP onboarding",
                 "parameters": [
                     {
-                        "type": "string",
-                        "description": "Authentication token",
-                        "name": "Token",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
                         "description": "Send OTP request body",
                         "name": "requestBody",
                         "in": "body",
