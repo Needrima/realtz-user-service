@@ -24,7 +24,6 @@ definitions:
       email:
         type: string
       password:
-        minLength: 3
         type: string
     required:
     - email
@@ -33,6 +32,17 @@ definitions:
   dto.SendOtpDto:
     properties:
       channel:
+        type: string
+    required:
+    - channel
+    type: object
+  dto.SendOtpOnboardingDto:
+    properties:
+      channel:
+        type: string
+      email:
+        type: string
+      phone_number:
         type: string
     required:
     - channel
@@ -50,7 +60,6 @@ definitions:
         minLength: 3
         type: string
       password:
-        minLength: 6
         type: string
       phone_number:
         type: string
@@ -411,6 +420,37 @@ paths:
           schema:
             $ref: '#/definitions/helpers.ServiceError'
       summary: Login
+      tags:
+      - User
+  /send-otp:
+    post:
+      consumes:
+      - application/json
+      description: Send OTP for different verification processes during onboarding
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: Send OTP request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.SendOtpOnboardingDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OTP sent successfully
+          schema:
+            type: object
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Send OTP onboarding
       tags:
       - User
   /signup:
