@@ -58,7 +58,7 @@ type StartPasswordRecoveryDto struct {
 type CompletePasswordRecoveryDto struct {
 	OTP                string `json:"otp" binding:"required,len=6"`
 	OTPverificationKey string `json:"otp_verification_key" binding:"required"`
-	NewPassword        string `json:"new_password" bson:"new_password" binding:"required,alphanum,min=3"`
-	ConfirmPassword    string `json:"confirm_password" bson:"confirm_password" binding:"required,alphanum,eqfield=NewPassword"`
+	NewPassword        string `json:"new_password" bson:"new_password" binding:"required,valid_password"`
+	ConfirmPassword string `json:"confirm_password" bson:"confirm_password" binding:"required,eqfield=NewPassword"`
 	Email              string `json:"email" bson:"email" binding:"required,email"`
 }

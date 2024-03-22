@@ -6,7 +6,6 @@ definitions:
       email:
         type: string
       new_password:
-        minLength: 3
         type: string
       otp:
         type: string

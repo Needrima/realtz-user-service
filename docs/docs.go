@@ -629,8 +629,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "new_password": {
-                    "type": "string",
-                    "minLength": 3
+                    "type": "string"
                 },
                 "otp": {
                     "type": "string"
