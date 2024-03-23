@@ -19,5 +19,7 @@ type HTTPPort interface {
 	GetUserByPhoneNumber(ctx context.Context, phoneNumber string) (interface{}, error)
 	GetUserByReference(ctx context.Context, reference string) (interface{}, error)
 	UpdatePhoneNumber(ctx context.Context, currentUser entity.User, upddatePhoneNumberDto dto.UpdatePhoneNumberDto) (interface{}, error)
+	Like(ctx context.Context,reference string) (interface{}, error)
+	UnLike(ctx context.Context,reference string) (interface{}, error)
 	Logout(token string) (interface{}, error)
 }

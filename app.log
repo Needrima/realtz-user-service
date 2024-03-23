@@ -661,3 +661,6 @@
 {"@timestamp":"2024-03-23T20:15:47+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: amirdeen@gmail.com, error: mongo: no documents in result"}
 {"@timestamp":"2024-03-23T20:15:48+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: mongo: no documents in result"}
 {"@timestamp":"2024-03-23T20:15:48+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2024-03-23T23:43:54+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-23T23:44:08+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-23T23:44:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
