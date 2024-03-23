@@ -8,7 +8,7 @@ import (
 	logHelper "realtz-user-service/internal/core/helpers/log-helper"
 
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"
+	// "go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -45,8 +45,7 @@ func (m mongoRepo) CreateUser(ctx context.Context, user entity.User) (interface{
 
 func (m mongoRepo) GetUserByEmail(ctx context.Context, email string) (interface{}, error) {
 	user := entity.User{}
-
-	filter := bson.M{"email": bson.M{"$regex": primitive.Regex{Pattern: email, Options: "i"}}}
+	filter := bson.M{"email": bson.M{"$regex": fmt.Sprintf("^%s$", email), "$options": "i"}}
 	if err := m.collection.FindOne(ctx, filter).Decode(&user); err != nil {
 		logHelper.LogEvent(logHelper.ErrorLog, fmt.Sprintf("cannot find user with email: %s, error: %s", email, err.Error()))
 		return nil, errorHelper.NewServiceError("user not found", 404)
