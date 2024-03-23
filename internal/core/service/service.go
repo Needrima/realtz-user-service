@@ -476,6 +476,26 @@ func (s Service) UpdatePhoneNumber(ctx context.Context, currentUser entity.User,
 	return updatePhoneNumberResp, nil
 }
 
+func (s Service)Like(ctx context.Context,reference string) (interface{}, error) {
+	foundUser, err := s.dbPort.GetUserByReference(ctx ,reference)
+	if err != nil {
+		return nil, err
+	}
+	user := foundUser.(entity.User)
+	user.NumLikes++
+	return s.dbPort.UpdateUser(ctx, user)
+}
+
+func (s Service)UnLike(ctx context.Context,reference string) (interface{}, error) {
+	foundUser, err := s.dbPort.GetUserByReference(ctx ,reference)
+	if err != nil {
+		return nil, err
+	}
+	user := foundUser.(entity.User)
+	user.NumLikes--
+	return s.dbPort.UpdateUser(ctx, user)
+}
+
 func (s Service) Logout(token string) (interface{}, error) {
 	tokenHelper.RevokeToken(token)
 

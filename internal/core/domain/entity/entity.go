@@ -15,6 +15,8 @@ type User struct {
 	IsBvnVerified         bool   `json:"is_bvn_verified" bson:"is_bvn_verified"`
 	IsVerified            bool   `json:"is_verified" bson:"is_verified"`
 	IsActive              bool   `json:"is_active" bson:"is_active"`
+	NumLikes              int    `json:"-" bson:"num_likes"`
+	StarRating            int    `json:"-" bson:"star_rating"`
 	CreatedOn             string `json:"created_on" bson:"created_on"`
 	LastUpdatedOn         string `json:"last_updated_on" bson:"last_updated_on"`
 }

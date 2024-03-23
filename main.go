@@ -10,6 +10,8 @@ import (
 	logHelper "realtz-user-service/internal/core/helpers/log-helper"
 	validationHelper "realtz-user-service/internal/core/helpers/validation-helper"
 	services "realtz-user-service/internal/core/service"
+	redisHelper "realtz-user-service/internal/core/helpers/redis-helper"
+	eventHandler "realtz-user-service/internal/adapter/event-handler"
 )
 
 func main() {
@@ -39,9 +41,13 @@ func main() {
 		}
 	}()
 
-	// go func() {
-	// 	redisRepo.SubsribeToEvent(redisHelper.USERCREATED, redisHelper.SendNotificationHandler)
-	// }()
+	go func() {
+		redisRepo.SubsribeToEvent(redisHelper.PRODUCTLIKED, eventHandler.ProductLikedEventHandler)
+	}()
+
+	go func() {
+		redisRepo.SubsribeToEvent(redisHelper.PRODUCTUNLIKED, eventHandler.ProductUnLikedEventHandler)
+	}()
 
 	select {}
 }
