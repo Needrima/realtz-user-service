@@ -8,6 +8,7 @@ type SignupDto struct {
 	PhoneNumber     string `json:"phone_number" bson:"phone_number" binding:"required,valid_phone_number"`
 	Password        string `json:"password" bson:"password" binding:"required,valid_password"`
 	ConfirmPassword string `json:"confirm_password" bson:"confirm_password" binding:"required,eqfield=Password"`
+	Agreement       bool   `json:"agreement" bson:"agreement" binding:"required,eq=true"`
 }
 
 type LoginDto struct {
@@ -59,6 +60,6 @@ type CompletePasswordRecoveryDto struct {
 	OTP                string `json:"otp" binding:"required,len=6"`
 	OTPverificationKey string `json:"otp_verification_key" binding:"required"`
 	NewPassword        string `json:"new_password" bson:"new_password" binding:"required,valid_password"`
-	ConfirmPassword string `json:"confirm_password" bson:"confirm_password" binding:"required,eqfield=NewPassword"`
+	ConfirmPassword    string `json:"confirm_password" bson:"confirm_password" binding:"required,eqfield=NewPassword"`
 	Email              string `json:"email" bson:"email" binding:"required,email"`
 }
