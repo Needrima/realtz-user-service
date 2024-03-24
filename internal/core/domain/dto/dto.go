@@ -14,7 +14,7 @@ type SignupDto struct {
 
 type LoginDto struct {
 	Email    string `json:"email" bson:"email" binding:"required,email"`
-	Password string `json:"password" bson:"password" binding:"required,valid_password"`
+	Password string `json:"password" bson:"password" binding:"required"`
 }
 
 type SendOtpDto struct {
