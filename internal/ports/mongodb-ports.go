@@ -10,5 +10,6 @@ type MongoDBPort interface {
 	GetUserByEmail(ctx context.Context, email string) (interface{}, error)
 	GetUserByPhoneNumber(ctx context.Context, phoneNumber string) (interface{}, error)
 	GetUserByReference(ctx context.Context, reference string) (interface{}, error)
+	GetUserByUsername(ctx context.Context, username string) (interface{}, error)
 	UpdateUser(ctx context.Context, updateUser entity.User) (interface{}, error)
 }

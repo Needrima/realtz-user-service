@@ -12,6 +12,8 @@ func InitBindingValidation() {
 	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
 		v.RegisterValidation("valid_phone_number", ValidNigerianPhoneNumber)
 		v.RegisterValidation("valid_password", ValidateValidPassword)
+		v.RegisterValidation("valid_name", ValidName)
+		v.RegisterValidation("valid_username", ValidUserName)
 	}
 }
 
@@ -39,3 +41,22 @@ func ValidateValidPassword(fl validator.FieldLevel) bool {
 
 	return hasUppercase && hasLowercase && hasNum && hasSymbol && len(strings.TrimSpace(password)) >= 6
 }
+
+func ValidName(fl validator.FieldLevel) bool {
+	fieldValue := fl.Field().String()
+
+	namePattern := `^[a-zA-Z-]+$`
+
+	return regexp.MustCompile(namePattern).MatchString(fieldValue)
+}
+
+func ValidUserName(fl validator.FieldLevel) bool {
+	fieldValue := fl.Field().String()
+
+	namePattern := `^[a-zA-Z0-9_]+$`
+
+	return regexp.MustCompile(namePattern).MatchString(fieldValue)
+}
+
+// export const NAME_REGEX = /^[a-zA-Z-]+$/;
+// export const USERNAME_REGEX = /^[a-zA-Z_]+$/;

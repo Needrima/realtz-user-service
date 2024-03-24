@@ -13,6 +13,6 @@ const (
 
 // subscription channels
 const (
-	PRODUCTLIKED = "PRODUCTLIKED"
+	PRODUCTLIKED   = "PRODUCTLIKED"
 	PRODUCTUNLIKED = "PRODUCTUNLIKED"
 )

@@ -38,6 +38,10 @@ func NewService(dbPort ports.MongoDBPort, redisPort ports.RedisPort) Service {
 func (s Service) SignUp(ctx context.Context, signupDto dto.SignupDto) (interface{}, error) {
 	logHelper.LogEvent(logHelper.InfoLog, fmt.Sprintf("attempting to sign up user %v %v", signupDto.Firstname, signupDto.Lastname))
 
+	if !signupDto.Agreement {
+		return nil, errorHelper.NewServiceError("You have not agreed to terms and conditions", 400)
+	}
+
 	// create user from signup dto and store in db
 	user := mapper.CreateUserFromSignupDto(signupDto)
 	_, err := s.dbPort.CreateUser(ctx, user)
@@ -170,10 +174,12 @@ func (s Service) SendOTP(ctx context.Context, currentUser entity.User, otpDto dt
 
 	sendOtpResp := struct {
 		OTPverificationKey string `json:"otp_verification_key"`
+		OTP string `json:"otp"`
 		Message            string `json:"message"`
 		Success            bool   `json:"success"`
 	}{
 		OTPverificationKey: key,
+		OTP: otp,
 		Message:            "OTP sent. Please stand advised",
 		Success:            true,
 	}
@@ -476,8 +482,8 @@ func (s Service) UpdatePhoneNumber(ctx context.Context, currentUser entity.User,
 	return updatePhoneNumberResp, nil
 }
 
-func (s Service)Like(ctx context.Context,reference string) (interface{}, error) {
-	foundUser, err := s.dbPort.GetUserByReference(ctx ,reference)
+func (s Service) Like(ctx context.Context, reference string) (interface{}, error) {
+	foundUser, err := s.dbPort.GetUserByReference(ctx, reference)
 	if err != nil {
 		return nil, err
 	}
@@ -486,8 +492,8 @@ func (s Service)Like(ctx context.Context,reference string) (interface{}, error) 
 	return s.dbPort.UpdateUser(ctx, user)
 }
 
-func (s Service)UnLike(ctx context.Context,reference string) (interface{}, error) {
-	foundUser, err := s.dbPort.GetUserByReference(ctx ,reference)
+func (s Service) UnLike(ctx context.Context, reference string) (interface{}, error) {
+	foundUser, err := s.dbPort.GetUserByReference(ctx, reference)
 	if err != nil {
 		return nil, err
 	}

@@ -2,16 +2,16 @@ package main
 
 import (
 	"os"
+	eventHandler "realtz-user-service/internal/adapter/event-handler"
 	handler "realtz-user-service/internal/adapter/http-handler"
 	mongoRepo "realtz-user-service/internal/adapter/repository/mongodb"
 	redisRepo "realtz-user-service/internal/adapter/repository/redis"
 	"realtz-user-service/internal/adapter/routes"
 	configHelper "realtz-user-service/internal/core/helpers/configuration-helper"
 	logHelper "realtz-user-service/internal/core/helpers/log-helper"
+	redisHelper "realtz-user-service/internal/core/helpers/redis-helper"
 	validationHelper "realtz-user-service/internal/core/helpers/validation-helper"
 	services "realtz-user-service/internal/core/service"
-	redisHelper "realtz-user-service/internal/core/helpers/redis-helper"
-	eventHandler "realtz-user-service/internal/adapter/event-handler"
 )
 
 func main() {
