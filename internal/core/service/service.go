@@ -174,10 +174,12 @@ func (s Service) SendOTP(ctx context.Context, currentUser entity.User, otpDto dt
 
 	sendOtpResp := struct {
 		OTPverificationKey string `json:"otp_verification_key"`
+		OTP string `json:"otp"`
 		Message            string `json:"message"`
 		Success            bool   `json:"success"`
 	}{
 		OTPverificationKey: key,
+		OTP: otp,
 		Message:            "OTP sent. Please stand advised",
 		Success:            true,
 	}
