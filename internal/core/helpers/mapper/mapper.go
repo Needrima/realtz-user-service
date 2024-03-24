@@ -18,6 +18,7 @@ func CreateUserFromSignupDto(signupDto dto.SignupDto) entity.User {
 		Firstname:     signupDto.Firstname,
 		Lastname:      signupDto.Lastname,
 		Fullname:      fmt.Sprintf("%s %s", signupDto.Firstname, signupDto.Lastname),
+		Username:      signupDto.Username,
 		Email:         signupDto.Email,
 		PhoneNumber:   ConvertPhoneToInternationalFormat(signupDto.PhoneNumber),
 		Password:      string(passwordHash),

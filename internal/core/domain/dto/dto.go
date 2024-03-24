@@ -2,8 +2,9 @@ package dto
 
 type SignupDto struct {
 	UserType        string `json:"user_type" bson:"user_type" binding:"required,eq=user|eq=agent"`
-	Firstname       string `json:"firstname" bson:"firstname" binding:"required,min=3"`
-	Lastname        string `json:"lastname" bson:"lastname" binding:"required,min=3"`
+	Firstname       string `json:"firstname" bson:"firstname" binding:"required,min=3,valid_name"`
+	Lastname        string `json:"lastname" bson:"lastname" binding:"required,min=3,valid_name"`
+	Username        string `json:"username" bson:"username" binding:"required,min=3,valid_username"`
 	Email           string `json:"email" bson:"email" binding:"required,email"`
 	PhoneNumber     string `json:"phone_number" bson:"phone_number" binding:"required,valid_phone_number"`
 	Password        string `json:"password" bson:"password" binding:"required,valid_password"`

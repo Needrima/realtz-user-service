@@ -6,7 +6,10 @@ type User struct {
 	Firstname             string `json:"firstname" bson:"firstname"`
 	Lastname              string `json:"lastname" bson:"lastname"`
 	Fullname              string `json:"fullname" bson:"fullname"`
+	Username              string `json:"username" bson:"username"`
 	Email                 string `json:"email" bson:"email"`
+	Image                 string `json:"image" bson:"image"`
+	Bio                   string `json:"bio" bson:"bio"`
 	PhoneNumber           string `json:"phone_number" bson:"phone_number"`
 	BVN                   string `json:"-" bson:"bvn"`
 	Password              string `json:"-" bson:"password"`
@@ -15,8 +18,9 @@ type User struct {
 	IsBvnVerified         bool   `json:"is_bvn_verified" bson:"is_bvn_verified"`
 	IsVerified            bool   `json:"is_verified" bson:"is_verified"`
 	IsActive              bool   `json:"is_active" bson:"is_active"`
-	NumLikes              int    `json:"-" bson:"num_likes"`
-	StarRating            int    `json:"-" bson:"star_rating"`
+	NumLikes              int    `json:"num_likes" bson:"num_likes"`
+	StarRating            int    `json:"star_rating" bson:"star_rating"`
+	NumProducts          int    `json:"num_products" bson:"num_products"`
 	CreatedOn             string `json:"created_on" bson:"created_on"`
 	LastUpdatedOn         string `json:"last_updated_on" bson:"last_updated_on"`
 }

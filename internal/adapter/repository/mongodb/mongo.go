@@ -32,6 +32,10 @@ func (m mongoRepo) CreateUser(ctx context.Context, user entity.User) (interface{
 		return nil, errorHelper.NewServiceError("phone number has been taken", 409)
 	}
 
+	if _, err := m.GetUserByUsername(ctx, user.Username); err == nil {
+		return nil, errorHelper.NewServiceError("username has been taken", 409)
+	}
+
 	_, err := m.collection.InsertOne(ctx, user)
 	if err != nil {
 		logHelper.LogEvent(logHelper.ErrorLog, "could not store new user in db: "+err.Error())
@@ -64,6 +68,20 @@ func (m mongoRepo) GetUserByReference(ctx context.Context, reference string) (in
 	}
 
 	logHelper.LogEvent(logHelper.SuccessLog, fmt.Sprintf("successfully retrieved user with reference: %s", reference))
+
+	return user, nil
+}
+
+
+func (m mongoRepo) GetUserByUsername(ctx context.Context, username string) (interface{}, error) {
+	user := entity.User{}
+	filter := bson.M{"username": bson.M{"$regex": fmt.Sprintf("^%s$", username), "$options": "i"}}
+	if err := m.collection.FindOne(ctx, filter).Decode(&user); err != nil {
+		logHelper.LogEvent(logHelper.ErrorLog, fmt.Sprintf("cannot find user with username: %s, error: %s", username, err.Error()))
+		return nil, errorHelper.NewServiceError("user not found", 404)
+	}
+
+	logHelper.LogEvent(logHelper.SuccessLog, fmt.Sprintf("successfully retrieved user with username: %s", username))
 
 	return user, nil
 }
