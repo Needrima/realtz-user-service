@@ -685,15 +685,20 @@ const docTemplate = `{
         "dto.SignupDto": {
             "type": "object",
             "required": [
+                "agreement",
                 "confirm_password",
                 "email",
                 "firstname",
                 "lastname",
                 "password",
                 "phone_number",
-                "user_type"
+                "user_type",
+                "username"
             ],
             "properties": {
+                "agreement": {
+                    "type": "boolean"
+                },
                 "confirm_password": {
                     "type": "string"
                 },
@@ -716,6 +721,10 @@ const docTemplate = `{
                 },
                 "user_type": {
                     "type": "string"
+                },
+                "username": {
+                    "type": "string",
+                    "minLength": 3
                 }
             }
         },
