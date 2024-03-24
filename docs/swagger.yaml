@@ -48,6 +48,8 @@ definitions:
     type: object
   dto.SignupDto:
     properties:
+      agreement:
+        type: boolean
       confirm_password:
         type: string
       email:
@@ -64,7 +66,11 @@ definitions:
         type: string
       user_type:
         type: string
+      username:
+        minLength: 3
+        type: string
     required:
+    - agreement
     - confirm_password
     - email
     - firstname
@@ -72,6 +78,7 @@ definitions:
     - password
     - phone_number
     - user_type
+    - username
     type: object
   dto.StartPasswordRecoveryDto:
     properties:
