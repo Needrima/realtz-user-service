@@ -309,7 +309,7 @@ func (s Service) VerifyBvn(ctx context.Context, currentUser entity.User, verifyB
 		return nil, errorHelper.NewServiceError("invalid otp", 400)
 	}
 
-	foundUser, err := s.GetUserByReference(ctx, currentUser.Reference)
+	foundUser, err := s.dbPort.GetUserByReference(ctx, currentUser.Reference)
 	if err != nil {
 		return nil, err
 	}

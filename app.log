@@ -683,3 +683,61 @@
 {"@timestamp":"2024-03-24T13:44:00+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
 {"@timestamp":"2024-03-24T13:44:04+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
 {"@timestamp":"2024-03-24T13:44:06+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-25T05:35:37+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-25T05:36:08+01:00","level":"DANGER","app_name":"realtz-user-service","message":"pinging mongo DB: server selection error: server selection timeout, current topology: { Type: ReplicaSetNoPrimary, Servers: [{ Addr: e-shop-test-shard-00-02.csoa6.mongodb.net:27017, Type: Unknown, Last error: context deadline exceeded }, { Addr: e-shop-test-shard-00-00.csoa6.mongodb.net:27017, Type: Unknown, Last error: context deadline exceeded }, { Addr: e-shop-test-shard-00-01.csoa6.mongodb.net:27017, Type: Unknown, Last error: context deadline exceeded }, ] }"}
+{"@timestamp":"2024-03-25T05:37:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-25T05:37:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-25T05:37:11+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-25T05:39:22+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-03-25T05:47:04+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-03-25T07:04:24+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-03-25T14:11:15+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-25T14:11:15+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-25T14:11:17+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-25T14:25:41+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-25T14:25:41+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-25T14:25:44+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-25T14:29:35+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: oyebodeamirdeen@gmail.com, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-25T14:31:44+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.Agreement' Error:Field validation for 'Agreement' failed on the 'required' tag"}
+{"@timestamp":"2024-03-25T14:32:13+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding signup request body: Key: 'SignupDto.Agreement' Error:Field validation for 'Agreement' failed on the 'required' tag"}
+{"@timestamp":"2024-03-25T14:33:48+01:00","level":"INFO","app_name":"realtz-user-service","message":"received request payload for signup request for Amirdeen Oyebode"}
+{"@timestamp":"2024-03-25T14:33:48+01:00","level":"INFO","app_name":"realtz-user-service","message":"attempting to sign up user Amirdeen Oyebode"}
+{"@timestamp":"2024-03-25T14:33:48+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: oyebodeamirdeen@gmail.com, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-25T14:33:48+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: mongo: no documents in result"}
+{"@timestamp":"2024-03-25T14:33:48+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with username: Needrima, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-25T14:33:48+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully created user. Firstname: Amirdeen, Lastname: Oyebode"}
+{"@timestamp":"2024-03-25T14:34:08+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-03-25T14:34:08+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2024-03-25T14:34:41+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-03-25T15:14:16+01:00","level":"ERROR","app_name":"realtz-user-service","message":"could not get revoked tokens json: dial tcp: lookup redis-14070.c327.europe-west1-2.gce.cloud.redislabs.com: i/o timeout"}
+{"@timestamp":"2024-03-25T15:14:26+01:00","level":"ERROR","app_name":"realtz-user-service","message":"could not get revoked tokens json: dial tcp: lookup redis-14070.c327.europe-west1-2.gce.cloud.redislabs.com: i/o timeout"}
+{"@timestamp":"2024-03-25T15:14:48+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with reference: cde6eefa-d33a-4937-b383-5c5296503fc9, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-25T15:14:55+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with reference: cde6eefa-d33a-4937-b383-5c5296503fc9, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-25T15:15:07+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with reference: cde6eefa-d33a-4937-b383-5c5296503fc9, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-25T15:15:09+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with reference: cde6eefa-d33a-4937-b383-5c5296503fc9, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-25T15:16:08+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with reference: cde6eefa-d33a-4937-b383-5c5296503fc9, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-25T15:16:13+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with reference: cde6eefa-d33a-4937-b383-5c5296503fc9, error: mongo: no documents in result"}
+{"@timestamp":"2024-03-25T15:17:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-25T15:17:17+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-25T15:17:19+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-25T15:18:36+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with reference: cde6eefa-d33a-4937-b383-5c5296503fc9, error: server selection error: context canceled, current topology: { Type: Single, Servers: [{ Addr: localhost:27017, Type: Unknown, Last error:  connection(localhost:27017[-2]) incomplete read of full message: read tcp [::1]:64867-\u003e[::1]:27017: i/o timeout: connection(localhost:27017[-2]) incomplete read of full message: read tcp [::1]:64867-\u003e[::1]:27017: i/o timeout }, ] }"}
+{"@timestamp":"2024-03-25T15:18:40+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:19:28+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:20:44+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:21:09+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:21:27+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:22:03+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:23:18+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:26:55+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:27:08+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:27:20+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:31:23+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:31:27+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:32:14+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:33:42+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:33:46+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:34:42+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:36:14+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T15:49:45+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T16:22:39+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-25T16:35:04+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
