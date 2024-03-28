@@ -483,6 +483,38 @@ func (h HttpHandler) GetUserByReference(c *gin.Context) {
 	c.JSON(200, response)
 }
 
+// @Summary Upload Profile image
+// @Description Upload or replace user profile image
+// @Tags User
+// @Accept multipart/form-data
+// @Produce json
+// @Param Token header string true "Authentication token"
+// @Param profile_image formData file true "Profile Image to upload"
+// @Success 200 {string} interface{} "Image Upload successfully"
+// @Failure 500 {object} errorHelper.ServiceError "something went wrong"
+// @Failure 404 {object} errorHelper.ServiceError "user not found"
+// @Router /auth/upload-profile-image [post]
+func (h HttpHandler) UploadProfileImage(c *gin.Context) {
+
+	fileHeader, err := c.FormFile("profile_image")
+	if err != nil {
+		logHelper.LogEvent(logHelper.ErrorLog, "formfile err: "+err.Error())
+		c.AbortWithStatusJSON(400, gin.H{"error": err.Error()})
+		return
+	}
+
+	// get user from jwt-token
+	currentUser, _ := tokenHelper.ValidateToken(c.GetHeader("Token"))
+
+	response, err := h.httpPort.UploadProfileImage(c.Request.Context(), *currentUser, fileHeader)
+	if err != nil {
+		c.AbortWithStatusJSON(err.(errorHelper.ServiceError).Code, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(200, response)
+}
+
 // @Summary Logout
 // @Description Unauthnticate a user
 // @Tags User

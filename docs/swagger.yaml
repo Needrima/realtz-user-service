@@ -275,6 +275,40 @@ paths:
       summary: Update Phone Number
       tags:
       - User
+  /auth/upload-profile-image:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Upload or replace user profile image
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: Profile Image to upload
+        in: formData
+        name: profile_image
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Image Upload successfully
+          schema:
+            type: string
+        "404":
+          description: user not found
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Upload Profile image
+      tags:
+      - User
   /auth/verify-bvn:
     post:
       consumes:

@@ -205,6 +205,57 @@ const docTemplate = `{
                 }
             }
         },
+        "/auth/upload-profile-image": {
+            "post": {
+                "description": "Upload or replace user profile image",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Upload Profile image",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication token",
+                        "name": "Token",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "file",
+                        "description": "Profile Image to upload",
+                        "name": "profile_image",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Image Upload successfully",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "user not found",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    },
+                    "500": {
+                        "description": "something went wrong",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    }
+                }
+            }
+        },
         "/auth/verify-bvn": {
             "post": {
                 "description": "Verify a user's bank verification number",

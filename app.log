@@ -741,3 +741,66 @@
 {"@timestamp":"2024-03-25T15:49:45+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
 {"@timestamp":"2024-03-25T16:22:39+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
 {"@timestamp":"2024-03-25T16:35:04+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-26T07:03:22+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-26T07:03:22+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-26T07:03:23+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-26T07:06:34+01:00","level":"INFO","app_name":"realtz-user-service","message":"received data from channle: PRODUCTLIKED"}
+{"@timestamp":"2024-03-26T07:07:02+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-26T07:07:15+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2024-03-26T07:09:24+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-26T07:15:49+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-26T07:19:41+01:00","level":"INFO","app_name":"realtz-user-service","message":"received data from channle: PRODUCTUNLIKED"}
+{"@timestamp":"2024-03-26T07:19:41+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-26T07:19:41+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2024-03-26T07:20:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"received data from channle: PRODUCTLIKED"}
+{"@timestamp":"2024-03-26T07:20:14+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-26T07:20:21+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2024-03-28T12:14:40+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T12:14:40+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T12:14:45+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp 35.205.50.111:14070: i/o timeout"}
+{"@timestamp":"2024-03-28T12:18:05+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T12:18:05+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T12:18:10+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp 35.205.50.111:14070: i/o timeout"}
+{"@timestamp":"2024-03-28T13:10:31+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:10:31+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:10:36+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp 35.205.50.111:14070: i/o timeout"}
+{"@timestamp":"2024-03-28T13:15:15+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:15:15+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:17:10+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp: lookup redis-14070.c327.europe-west1-2.gce.cloud.redislabs.com: i/o timeout"}
+{"@timestamp":"2024-03-28T13:17:31+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:17:31+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:18:05+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:18:05+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:18:26+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp 35.205.50.111:14070: i/o timeout"}
+{"@timestamp":"2024-03-28T13:24:38+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:24:38+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:24:41+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp: lookup redis-14070.c327.europe-west1-2.gce.cloud.redislabs.com: no such host"}
+{"@timestamp":"2024-03-28T13:25:04+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:25:04+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:25:07+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp: lookup redis-14070.c327.europe-west1-2.gce.cloud.redislabs.com: no such host"}
+{"@timestamp":"2024-03-28T13:25:07+01:00","level":"DANGER","app_name":"realtz-user-service","message":"setting revoked tokens key in redis: dial tcp: lookup redis-14070.c327.europe-west1-2.gce.cloud.redislabs.com: no such host"}
+{"@timestamp":"2024-03-28T13:26:11+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:26:11+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:26:11+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp: lookup redis-14070.c327.europe-west1-2.gce.cloud.redislabs.com: no such host"}
+{"@timestamp":"2024-03-28T13:26:11+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-28T13:27:14+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:27:14+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:27:14+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp: lookup redis-14070.c327.europe-west1-2.gce.cloud.redislabs.com: no such host"}
+{"@timestamp":"2024-03-28T13:27:14+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-28T13:29:51+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:29:51+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:29:53+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-28T13:32:10+01:00","level":"INFO","app_name":"realtz-user-service","message":"deleting old profile image"}
+{"@timestamp":"2024-03-28T13:32:12+01:00","level":"ERROR","app_name":"realtz-user-service","message":"could not delete old profile image for user: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c, error: storage: object doesn't exist"}
+{"@timestamp":"2024-03-28T13:36:39+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:36:39+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:36:41+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-28T13:36:59+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:36:59+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-03-28T13:37:00+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-03-28T13:37:15+01:00","level":"INFO","app_name":"realtz-user-service","message":"deleting old profile image"}
+{"@timestamp":"2024-03-28T13:37:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"successfully deleted old profile image for user: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-28T13:37:16+01:00","level":"INFO","app_name":"realtz-user-service","message":"uploading new profile image for user: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-28T13:40:42+01:00","level":"INFO","app_name":"realtz-user-service","message":"deleting old profile image"}
+{"@timestamp":"2024-03-28T13:40:43+01:00","level":"INFO","app_name":"realtz-user-service","message":"successfully deleted old profile image for user: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-03-28T13:40:43+01:00","level":"INFO","app_name":"realtz-user-service","message":"uploading new profile image for user: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}

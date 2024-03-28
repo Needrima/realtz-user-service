@@ -72,7 +72,6 @@ func (m mongoRepo) GetUserByReference(ctx context.Context, reference string) (in
 	return user, nil
 }
 
-
 func (m mongoRepo) GetUserByUsername(ctx context.Context, username string) (interface{}, error) {
 	user := entity.User{}
 	filter := bson.M{"username": bson.M{"$regex": fmt.Sprintf("^%s$", username), "$options": "i"}}
