@@ -3,8 +3,12 @@ package services
 import (
 	"context"
 	"fmt"
+	"io"
+	"mime/multipart"
+	"path/filepath"
 	"realtz-user-service/internal/core/domain/dto"
 	"realtz-user-service/internal/core/domain/entity"
+	configHelper "realtz-user-service/internal/core/helpers/configuration-helper"
 	errorHelper "realtz-user-service/internal/core/helpers/error-helper"
 	logHelper "realtz-user-service/internal/core/helpers/log-helper"
 	mapper "realtz-user-service/internal/core/helpers/mapper"
@@ -12,24 +16,26 @@ import (
 	redisHelper "realtz-user-service/internal/core/helpers/redis-helper"
 	tokenHelper "realtz-user-service/internal/core/helpers/token-helper"
 	verificationHelper "realtz-user-service/internal/core/helpers/verification-helper"
+	miscHelper "realtz-user-service/internal/core/helpers/misc-helper"
 	"realtz-user-service/internal/ports"
 	"time"
 
-	// "github.com/redis/go-redis/v9"
 	"golang.org/x/crypto/bcrypt"
 )
 
 type Service struct {
-	dbPort    ports.MongoDBPort
-	redisPort ports.RedisPort
+	dbPort       ports.MongoDBPort
+	redisPort    ports.RedisPort
+	firebasePort ports.FirebasePort
 }
 
 var UserService Service
 
-func NewService(dbPort ports.MongoDBPort, redisPort ports.RedisPort) Service {
+func NewService(dbPort ports.MongoDBPort, redisPort ports.RedisPort, firebasePort ports.FirebasePort) Service {
 	UserService = Service{
-		dbPort:    dbPort,
-		redisPort: redisPort,
+		dbPort:       dbPort,
+		redisPort:    redisPort,
+		firebasePort: firebasePort,
 	}
 
 	return UserService
@@ -174,12 +180,12 @@ func (s Service) SendOTP(ctx context.Context, currentUser entity.User, otpDto dt
 
 	sendOtpResp := struct {
 		OTPverificationKey string `json:"otp_verification_key"`
-		OTP string `json:"otp"`
+		OTP                string `json:"otp"`
 		Message            string `json:"message"`
 		Success            bool   `json:"success"`
 	}{
 		OTPverificationKey: key,
-		OTP: otp,
+		OTP:                otp,
 		Message:            "OTP sent. Please stand advised",
 		Success:            true,
 	}
@@ -500,6 +506,52 @@ func (s Service) UnLike(ctx context.Context, reference string) (interface{}, err
 	user := foundUser.(entity.User)
 	user.NumLikes--
 	return s.dbPort.UpdateUser(ctx, user)
+}
+
+func (s Service) UploadProfileImage(ctx context.Context, currentUser entity.User, fileHeader *multipart.FileHeader) (interface{}, error) {
+	if fileHeader.Size > 2 << (10 * 2) { // if file is greater than 2MB
+		logHelper.LogEvent(logHelper.InfoLog, "file greater than 2MB")
+		return nil, errorHelper.NewServiceError("file is greater than 2MB", 400)
+	}
+
+	fileExt := filepath.Ext(fileHeader.Filename)
+	if _, found := miscHelper.Found[string]([]string{".jpg", ".jpeg", ".png"}, fileExt); !found {
+		logHelper.LogEvent(logHelper.InfoLog, "unaccepted image file type")
+		return nil, errorHelper.NewServiceError("unaccepted image file type, image must be .jpg, .jpeg, .png", 400)
+	}
+
+	file, err := fileHeader.Open()
+	if err != nil {
+		logHelper.LogEvent(logHelper.ErrorLog, "opening file header, error: "+err.Error())
+		return nil, errorHelper.NewServiceError("could not upload image", 500)
+	}
+
+	imageBytes, err := io.ReadAll(file)
+	if err != nil {
+		logHelper.LogEvent(logHelper.ErrorLog, "reading bytes from file, error: "+err.Error())
+		return nil, errorHelper.NewServiceError("could not upload image", 500)
+	}
+
+	newImageLink, err := s.firebasePort.UploadProfileImageToCloudAndGetLink(
+		configHelper.ServiceConfiguration.FirebaseStorageBucket,
+		currentUser.Reference,
+		imageBytes,
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	updateProfileImageResp := struct {
+		NewImageLink string `json:"new_image_link"`
+		Message      string `json:"message"`
+		Success      bool   `json:"success"`
+	}{
+		NewImageLink: newImageLink,
+		Message:      "success. proceed to verify phone number",
+		Success:      true,
+	}
+
+	return updateProfileImageResp, nil
 }
 
 func (s Service) Logout(token string) (interface{}, error) {

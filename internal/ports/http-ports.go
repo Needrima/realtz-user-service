@@ -2,6 +2,7 @@ package ports
 
 import (
 	"context"
+	"mime/multipart"
 	"realtz-user-service/internal/core/domain/dto"
 	"realtz-user-service/internal/core/domain/entity"
 )
@@ -21,5 +22,6 @@ type HTTPPort interface {
 	UpdatePhoneNumber(ctx context.Context, currentUser entity.User, upddatePhoneNumberDto dto.UpdatePhoneNumberDto) (interface{}, error)
 	Like(ctx context.Context, reference string) (interface{}, error)
 	UnLike(ctx context.Context, reference string) (interface{}, error)
+	UploadProfileImage(ctx context.Context, currentUser entity.User, fileHeader *multipart.FileHeader) (interface{}, error)
 	Logout(token string) (interface{}, error)
 }

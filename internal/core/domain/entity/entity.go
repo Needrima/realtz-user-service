@@ -20,7 +20,7 @@ type User struct {
 	IsActive              bool   `json:"is_active" bson:"is_active"`
 	NumLikes              int    `json:"num_likes" bson:"num_likes"`
 	StarRating            int    `json:"star_rating" bson:"star_rating"`
-	NumProducts          int    `json:"num_products" bson:"num_products"`
+	NumProducts           int    `json:"num_products" bson:"num_products"`
 	CreatedOn             string `json:"created_on" bson:"created_on"`
 	LastUpdatedOn         string `json:"last_updated_on" bson:"last_updated_on"`
 }

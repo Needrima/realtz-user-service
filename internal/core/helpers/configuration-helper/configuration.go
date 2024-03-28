@@ -23,6 +23,8 @@ type Configuration struct {
 	BVNVerificationEndpoint   string `mapstructure:"BVN_Verification_Endpoint"`
 	IdentityPassAPIKey        string `mapstructure:"IdentityPass_API_Key"`
 	IdentityPassAppId         string `mapstructure:"IdentityPass_App_ID"`
+	FirebaseStorageBucket     string `mapstructure:"Firebase_Storage_Bucket"`
+	FirebaseAccountKeyPath    string `mapstructure:"Firebase_Account_Key_Path"`
 }
 
 var ServiceConfiguration = loadConfig(".")

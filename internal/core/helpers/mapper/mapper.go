@@ -21,7 +21,7 @@ func CreateUserFromSignupDto(signupDto dto.SignupDto) entity.User {
 		Username:      signupDto.Username,
 		Email:         signupDto.Email,
 		PhoneNumber:   ConvertPhoneToInternationalFormat(signupDto.PhoneNumber),
-		StarRating: 1,
+		StarRating:    1,
 		Password:      string(passwordHash),
 		IsActive:      true,
 		CreatedOn:     time.Now().Format(time.RFC3339),

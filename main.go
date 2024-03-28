@@ -4,6 +4,7 @@ import (
 	"os"
 	eventHandler "realtz-user-service/internal/adapter/event-handler"
 	handler "realtz-user-service/internal/adapter/http-handler"
+	firebaseRepo "realtz-user-service/internal/adapter/repository/firebase"
 	mongoRepo "realtz-user-service/internal/adapter/repository/mongodb"
 	redisRepo "realtz-user-service/internal/adapter/repository/redis"
 	"realtz-user-service/internal/adapter/routes"
@@ -24,9 +25,10 @@ func main() {
 	// start api on database level (mongodb and redis)
 	mongoRepo := mongoRepo.ConnectToMongoDB()
 	redisRepo := redisRepo.ConnectToRedis()
+	firebaseRepo := firebaseRepo.ConnectToFirebase()
 
 	// start api on service level
-	service := services.NewService(mongoRepo, redisRepo)
+	service := services.NewService(mongoRepo, redisRepo, firebaseRepo)
 
 	// start api on http level
 	handler := handler.NewHTTPHandler(service)
