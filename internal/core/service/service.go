@@ -541,13 +541,23 @@ func (s Service) UploadProfileImage(ctx context.Context, currentUser entity.User
 		return nil, err
 	}
 
+	foundUser, err := s.dbPort.GetUserByReference(ctx, currentUser.Reference)
+	if err != nil {
+		return nil, err
+	}
+	user := foundUser.(entity.User)
+
+	user.Image = newImageLink
+
+	s.dbPort.UpdateUser(ctx, user)
+
 	updateProfileImageResp := struct {
 		NewImageLink string `json:"new_image_link"`
 		Message      string `json:"message"`
 		Success      bool   `json:"success"`
 	}{
 		NewImageLink: newImageLink,
-		Message:      "success. proceed to verify phone number",
+		Message:      "profile image uploaded successfully",
 		Success:      true,
 	}
 
