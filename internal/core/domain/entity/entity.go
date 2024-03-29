@@ -15,7 +15,7 @@ type User struct {
 	Password              string `json:"-" bson:"password"`
 	IsEmailVerified       bool   `json:"is_email_verified" bson:"is_email_verified"`
 	IsPhoneNumberVerified bool   `json:"is_phone_number_verified" bson:"is_phone_number_verified"`
-	IsBvnVerified         bool   `json:"is_bvn_verified" bson:"is_bvn_verified"`
+	IsBvnVerified         bool   `json:"-" bson:"is_bvn_verified"`
 	IsVerified            bool   `json:"is_verified" bson:"is_verified"`
 	IsActive              bool   `json:"is_active" bson:"is_active"`
 	NumLikes              int    `json:"num_likes" bson:"num_likes"`
