@@ -41,6 +41,7 @@ func SetupRouter(handler handler.HttpHandler) *gin.Engine {
 		userApiAuthGroup.POST("/verify-bvn", handler.VerifyBvn)
 		userApiAuthGroup.GET("/get-user/:user_reference", handler.GetUserByReference)
 		userApiAuthGroup.POST("/upload-profile-image", handler.UploadProfileImage)
+		userApiAuthGroup.POST("/edit-profile", handler.EditProfile)
 		userApiAuthGroup.GET("/logout", handler.Logout)
 	}
 

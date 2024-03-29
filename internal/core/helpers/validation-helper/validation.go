@@ -53,7 +53,7 @@ func ValidName(fl validator.FieldLevel) bool {
 func ValidUserName(fl validator.FieldLevel) bool {
 	fieldValue := fl.Field().String()
 
-	namePattern := `^[a-zA-Z0-9_]+$`
+	namePattern := `^[a-zA-Z0-9_]{0,}$`
 
 	return regexp.MustCompile(namePattern).MatchString(fieldValue)
 }

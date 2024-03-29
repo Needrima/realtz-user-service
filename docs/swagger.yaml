@@ -18,6 +18,14 @@ definitions:
     - otp
     - otp_verification_key
     type: object
+  dto.EditProfileDto:
+    properties:
+      bio:
+        description: should be a minimum of 10 characters`
+        type: string
+      username:
+        type: string
+    type: object
   dto.LoginDto:
     properties:
       email:
@@ -150,6 +158,41 @@ definitions:
 info:
   contact: {}
 paths:
+  /auth/edit-profile:
+    post:
+      consumes:
+      - application/json
+      description: Update a user's username and/or bio
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: edit profile request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.EditProfileDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: profile update successful
+          schema:
+            type: object
+        "409":
+          description: username has ben taken
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Update user profile
+      tags:
+      - User
   /auth/get-user/{user_reference}:
     get:
       consumes:

@@ -16,6 +16,59 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/auth/edit-profile": {
+            "post": {
+                "description": "Update a user's username and/or bio",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update user profile",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication token",
+                        "name": "Token",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "edit profile request body",
+                        "name": "requestBody",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.EditProfileDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "profile update successful",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "409": {
+                        "description": "username has ben taken",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    },
+                    "500": {
+                        "description": "something went wrong",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    }
+                }
+            }
+        },
         "/auth/get-user/{user_reference}": {
             "get": {
                 "description": "Retrieve user by user reference",
@@ -686,6 +739,18 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "otp_verification_key": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.EditProfileDto": {
+            "type": "object",
+            "properties": {
+                "bio": {
+                    "description": "should be a minimum of 10 characters` + "`" + `",
+                    "type": "string"
+                },
+                "username": {
                     "type": "string"
                 }
             }
