@@ -23,5 +23,6 @@ type HTTPPort interface {
 	Like(ctx context.Context, reference string) (interface{}, error)
 	UnLike(ctx context.Context, reference string) (interface{}, error)
 	UploadProfileImage(ctx context.Context, currentUser entity.User, fileHeader *multipart.FileHeader) (interface{}, error)
+	EditProfile(ctx context.Context, currentUser entity.User, editProfileDto dto.EditProfileDto) (interface{}, error)
 	Logout(token string) (interface{}, error)
 }

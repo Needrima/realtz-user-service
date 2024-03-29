@@ -64,3 +64,8 @@ type CompletePasswordRecoveryDto struct {
 	ConfirmPassword    string `json:"confirm_password" bson:"confirm_password" binding:"required,eqfield=NewPassword"`
 	Email              string `json:"email" bson:"email" binding:"required,email"`
 }
+
+type EditProfileDto struct {
+	Username      string `json:"username,omitempty" bson:"username" binding:"valid_username"`
+	Bio           string `json:"bio,omitempty" bson:"bio"` // should be a minimum of 10 characters`
+}

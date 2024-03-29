@@ -515,6 +515,47 @@ func (h HttpHandler) UploadProfileImage(c *gin.Context) {
 	c.JSON(200, response)
 }
 
+// @Summary Update user profile
+// @Description Update a user's username and/or bio
+// @Tags User
+// @Accept json
+// @Produce json
+// @Param Token header string true "Authentication token"
+// @Success 200 {object} interface{} "profile update successful"
+// @Failure 409 {object} errorHelper.ServiceError "username has ben taken"
+// @Failure 500 {object} errorHelper.ServiceError "something went wrong"
+// @Param requestBody body dto.EditProfileDto true "edit profile request body"
+// @Router /auth/edit-profile [post]
+func (h HttpHandler) EditProfile(c *gin.Context) {
+	body := dto.EditProfileDto{}
+	if err := c.BindJSON(&body); err != nil {
+		logHelper.LogEvent(logHelper.ErrorLog, "binding edit profile request body: "+err.Error())
+		if validationErrs, ok := err.(validator.ValidationErrors); ok {
+			errFields := []string{}
+			for _, valErr := range validationErrs {
+				errFields = append(errFields, valErr.Field())
+			}
+
+			c.AbortWithStatusJSON(400, gin.H{"error": "invalid input in fields: " + strings.Join(errFields, ",")})
+			return
+		}
+
+		c.AbortWithStatusJSON(400, gin.H{"error": "invalid request body: " + err.Error()})
+		return
+	}
+
+	// get user from jwt-token
+	currentUser, _ := tokenHelper.ValidateToken(c.GetHeader("Token"))
+
+	response, err := h.httpPort.EditProfile(c.Request.Context(), *currentUser, body)
+	if err != nil {
+		c.AbortWithStatusJSON(err.(errorHelper.ServiceError).Code, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(200, response)
+}
+
 // @Summary Logout
 // @Description Unauthnticate a user
 // @Tags User

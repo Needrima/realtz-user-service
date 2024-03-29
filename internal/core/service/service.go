@@ -12,12 +12,13 @@ import (
 	errorHelper "realtz-user-service/internal/core/helpers/error-helper"
 	logHelper "realtz-user-service/internal/core/helpers/log-helper"
 	mapper "realtz-user-service/internal/core/helpers/mapper"
+	miscHelper "realtz-user-service/internal/core/helpers/misc-helper"
 	otpHelper "realtz-user-service/internal/core/helpers/otp-helper"
 	redisHelper "realtz-user-service/internal/core/helpers/redis-helper"
 	tokenHelper "realtz-user-service/internal/core/helpers/token-helper"
 	verificationHelper "realtz-user-service/internal/core/helpers/verification-helper"
-	miscHelper "realtz-user-service/internal/core/helpers/misc-helper"
 	"realtz-user-service/internal/ports"
+	"strings"
 	"time"
 
 	"golang.org/x/crypto/bcrypt"
@@ -509,7 +510,7 @@ func (s Service) UnLike(ctx context.Context, reference string) (interface{}, err
 }
 
 func (s Service) UploadProfileImage(ctx context.Context, currentUser entity.User, fileHeader *multipart.FileHeader) (interface{}, error) {
-	if fileHeader.Size > 2 << (10 * 2) { // if file is greater than 2MB
+	if fileHeader.Size > 2<<(10*2) { // if file is greater than 2MB
 		logHelper.LogEvent(logHelper.InfoLog, "file greater than 2MB")
 		return nil, errorHelper.NewServiceError("file is greater than 2MB", 400)
 	}
@@ -562,6 +563,60 @@ func (s Service) UploadProfileImage(ctx context.Context, currentUser entity.User
 	}
 
 	return updateProfileImageResp, nil
+}
+
+func (s Service) EditProfile(ctx context.Context, currentUser entity.User, editProfileDto dto.EditProfileDto) (interface{}, error) {
+
+	if editProfileDto.Username != "" {
+		if len(editProfileDto.Username) < 3 {
+			return nil, errorHelper.NewServiceError("username can't be less than 3 characters", 400)
+		}
+
+		foundUser, _ := s.dbPort.GetUserByUsername(ctx, editProfileDto.Username)
+
+		if foundUser != nil {
+			user := foundUser.(entity.User)
+			if strings.EqualFold(user.Username, editProfileDto.Username) {
+				return nil, errorHelper.NewServiceError("username already belongs to you", 409)
+			}
+
+			return nil, errorHelper.NewServiceError("username has ben taken", 409)
+		}
+	}
+
+	foundUser, err := s.dbPort.GetUserByReference(ctx, currentUser.Reference)
+	if err != nil {
+		return nil, err
+	}
+	user := foundUser.(entity.User)
+
+	if editProfileDto.Username != "" {
+		user.Username = editProfileDto.Username
+	}
+
+	if editProfileDto.Bio != "" {
+		if len(strings.TrimSpace(editProfileDto.Bio)) < 10 {
+			return nil, errorHelper.NewServiceError("bio can't be less than 10 characters", 400)
+		}
+		user.Bio = editProfileDto.Bio
+	}
+
+	_, err = s.dbPort.UpdateUser(ctx, user)
+	if err != nil {
+		return nil, err
+	}
+
+	editProfileResp := struct {
+		UpdatedUser interface{} `json:"updated_user"`
+		Message     string      `json:"message"`
+		Success     bool        `json:"success"`
+	}{
+		UpdatedUser: user,
+		Message:     "profile update successful",
+		Success:     true,
+	}
+
+	return editProfileResp, nil
 }
 
 func (s Service) Logout(token string) (interface{}, error) {
