@@ -401,6 +401,25 @@ func (s Service) CompletePasswordRecovery(ctx context.Context, completePasswordR
 
 	s.dbPort.UpdateUser(ctx, user)
 
+	eventDataToPublish := struct {
+		UserReference string `json:"user_reference" bson:"user_reference"`
+		Contact       string `json:"contact"` // phone number or email
+		Channel       string `json:"channel"` // can only one of sms|email|all
+		Message       string `json:"message"`
+		Subject       string `json:"subject"`
+		Type          string `json:"type"`
+	}{
+		UserReference: user.Reference,
+		Contact:       user.Email,
+		Channel:       "email",
+		Message:       fmt.Sprintf("Hi %s, \n\n. You recently changed your password. Now you can login and continue seeking your dream property.", user.Firstname),
+		Subject:       "Realtz Password Reset Confirmation",
+		Type:          "in_app",
+	}
+
+	// publish data
+	s.redisPort.PublishEvent(ctx, redisHelper.PASSWORDRESET, eventDataToPublish)
+
 	passwordRecoveryResponse := struct {
 		Message string `json:"message"`
 		Success bool   `json:"success"`
