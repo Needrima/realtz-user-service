@@ -66,6 +66,6 @@ type CompletePasswordRecoveryDto struct {
 }
 
 type EditProfileDto struct {
-	Username      string `json:"username,omitempty" bson:"username" binding:"valid_username"`
-	Bio           string `json:"bio,omitempty" bson:"bio"` // should be a minimum of 10 characters`
+	Username string `json:"username,omitempty" bson:"username" binding:"valid_username"`
+	Bio      string `json:"bio,omitempty" bson:"bio"` // should be a minimum of 10 characters`
 }
