@@ -18,7 +18,8 @@ type User struct {
 	IsBvnVerified         bool   `json:"-" bson:"is_bvn_verified"`
 	IsVerified            bool   `json:"is_verified" bson:"is_verified"`
 	IsActive              bool   `json:"is_active" bson:"is_active"`
-	NumLikes              int    `json:"num_likes" bson:"num_likes"`
+	NumLikes              int    `json:"num_likes" bson:"num_likes"` // total number of likes on all users products (for agents only)
+	NumSaves int `json:"num_saves" bson:"num_saves"` // total number of products daved by user
 	StarRating            int    `json:"star_rating" bson:"star_rating"`
 	NumProducts           int    `json:"num_products" bson:"num_products"`
 	CreatedOn             string `json:"created_on" bson:"created_on"`

@@ -506,7 +506,7 @@ func (s Service) UpdatePhoneNumber(ctx context.Context, currentUser entity.User,
 	return updatePhoneNumberResp, nil
 }
 
-func (s Service) Like(ctx context.Context, reference string) (interface{}, error) {
+func (s Service) IncrementLike(ctx context.Context, reference string) (interface{}, error) {
 	foundUser, err := s.dbPort.GetUserByReference(ctx, reference)
 	if err != nil {
 		return nil, err
@@ -516,13 +516,33 @@ func (s Service) Like(ctx context.Context, reference string) (interface{}, error
 	return s.dbPort.UpdateUser(ctx, user)
 }
 
-func (s Service) UnLike(ctx context.Context, reference string) (interface{}, error) {
+func (s Service) DecrementLike(ctx context.Context, reference string) (interface{}, error) {
 	foundUser, err := s.dbPort.GetUserByReference(ctx, reference)
 	if err != nil {
 		return nil, err
 	}
 	user := foundUser.(entity.User)
 	user.NumLikes--
+	return s.dbPort.UpdateUser(ctx, user)
+}
+
+func (s Service) IncrementSave(ctx context.Context, reference string) (interface{}, error) {
+	foundUser, err := s.dbPort.GetUserByReference(ctx, reference)
+	if err != nil {
+		return nil, err
+	}
+	user := foundUser.(entity.User)
+	user.NumSaves++
+	return s.dbPort.UpdateUser(ctx, user)
+}
+
+func (s Service) DecrementSave(ctx context.Context, reference string) (interface{}, error) {
+	foundUser, err := s.dbPort.GetUserByReference(ctx, reference)
+	if err != nil {
+		return nil, err
+	}
+	user := foundUser.(entity.User)
+	user.NumSaves--
 	return s.dbPort.UpdateUser(ctx, user)
 }
 
