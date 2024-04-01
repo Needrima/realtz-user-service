@@ -506,6 +506,16 @@ func (s Service) UpdatePhoneNumber(ctx context.Context, currentUser entity.User,
 	return updatePhoneNumberResp, nil
 }
 
+func (s Service) IncrementListing(ctx context.Context, reference string) (interface{}, error) {
+	foundUser, err := s.dbPort.GetUserByReference(ctx, reference)
+	if err != nil {
+		return nil, err
+	}
+	user := foundUser.(entity.User)
+	user.NumProducts++
+	return s.dbPort.UpdateUser(ctx, user)
+}
+
 func (s Service) IncrementLike(ctx context.Context, reference string) (interface{}, error) {
 	foundUser, err := s.dbPort.GetUserByReference(ctx, reference)
 	if err != nil {

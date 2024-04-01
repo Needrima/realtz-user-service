@@ -18,6 +18,16 @@ func extractDataFromEvent(event eto.Event) map[string]interface{} {
 }
 
 // Event handlers go here
+
+func ProductAddedEventHandler(evenJson string) {
+	event, _ := eto.EventJsonToEvent(evenJson)
+	data := extractDataFromEvent(event)
+
+	UserReference := data["user_reference"].(string)
+
+	services.UserService.IncrementListing(context.Background(), UserReference)
+}
+
 func ProductLikedEventHandler(evenJson string) {
 	event, _ := eto.EventJsonToEvent(evenJson)
 	data := extractDataFromEvent(event)
