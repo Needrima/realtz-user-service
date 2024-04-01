@@ -51,5 +51,13 @@ func main() {
 		redisRepo.SubsribeToEvent(redisHelper.PRODUCTUNLIKED, eventHandler.ProductUnLikedEventHandler)
 	}()
 
+	go func() {
+		redisRepo.SubsribeToEvent(redisHelper.PRODUCTSAVED, eventHandler.ProductSavedEventHandler)
+	}()
+
+	go func() {
+		redisRepo.SubsribeToEvent(redisHelper.PRODUCTUNSAVED, eventHandler.ProductUnSavedEventHandler)
+	}()
+
 	select {}
 }

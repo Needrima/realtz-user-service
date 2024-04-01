@@ -24,7 +24,7 @@ func ProductLikedEventHandler(evenJson string) {
 
 	UserReference := data["user_reference"].(string)
 
-	services.UserService.Like(context.Background(), UserReference)
+	services.UserService.IncrementLike(context.Background(), UserReference)
 }
 
 func ProductUnLikedEventHandler(evenJson string) {
@@ -33,5 +33,23 @@ func ProductUnLikedEventHandler(evenJson string) {
 
 	UserReference := data["user_reference"].(string)
 
-	services.UserService.UnLike(context.Background(), UserReference)
+	services.UserService.DecrementLike(context.Background(), UserReference)
+}
+
+func ProductSavedEventHandler (evenJson string) {
+	event, _ := eto.EventJsonToEvent(evenJson)
+	data := extractDataFromEvent(event)
+
+	UserReference := data["user_reference"].(string)
+
+	services.UserService.IncrementSave(context.Background(), UserReference)
+}
+
+func ProductUnSavedEventHandler (evenJson string) {
+	event, _ := eto.EventJsonToEvent(evenJson)
+	data := extractDataFromEvent(event)
+
+	UserReference := data["user_reference"].(string)
+
+	services.UserService.DecrementSave(context.Background(), UserReference)
 }
