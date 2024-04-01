@@ -44,6 +44,10 @@ func main() {
 	}()
 
 	go func() {
+		redisRepo.SubsribeToEvent(redisHelper.PRODUCTADDED, eventHandler.ProductAddedEventHandler)
+	}()
+
+	go func() {
 		redisRepo.SubsribeToEvent(redisHelper.PRODUCTLIKED, eventHandler.ProductLikedEventHandler)
 	}()
 
