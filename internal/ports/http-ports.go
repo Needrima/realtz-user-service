@@ -26,5 +26,6 @@ type HTTPPort interface {
 	DecrementSave(ctx context.Context, reference string) (interface{}, error)
 	UploadProfileImage(ctx context.Context, currentUser entity.User, fileHeader *multipart.FileHeader) (interface{}, error)
 	EditProfile(ctx context.Context, currentUser entity.User, editProfileDto dto.EditProfileDto) (interface{}, error)
+	RateUser(ctx context.Context, currentUser entity.User, reference, rating string) (interface{}, error)
 	Logout(token string) (interface{}, error)
 }
