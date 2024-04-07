@@ -556,6 +556,30 @@ func (h HttpHandler) EditProfile(c *gin.Context) {
 	c.JSON(200, response)
 }
 
+// @Summary Rate user
+// @Description Drop a star rating for a user
+// @Tags User
+// @Accept json
+// @Produce json
+// @Param Token header string true "Authentication token"
+// @Success 200 {object} interface{} "successfully rated user"
+// @Failure 500 {object} errorHelper.ServiceError "something went wrong"
+// @Router /auth/rate-user/{user_reference}/{rating} [get]
+func (h HttpHandler) RateUser(c *gin.Context) {
+	userReference := c.Param("user_reference")
+	rating := c.Param("rating")
+	// get user from jwt-token
+	currentUser, _ := tokenHelper.ValidateToken(c.GetHeader("Token"))
+
+	response, err := h.httpPort.RateUser(c.Request.Context(), *currentUser, userReference, rating)
+	if err != nil {
+		c.AbortWithStatusJSON(err.(errorHelper.ServiceError).Code, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(200, response)
+}
+
 // @Summary Logout
 // @Description Unauthnticate a user
 // @Tags User

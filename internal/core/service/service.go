@@ -18,6 +18,7 @@ import (
 	tokenHelper "realtz-user-service/internal/core/helpers/token-helper"
 	verificationHelper "realtz-user-service/internal/core/helpers/verification-helper"
 	"realtz-user-service/internal/ports"
+	"strconv"
 	"strings"
 	"time"
 
@@ -43,7 +44,7 @@ func NewService(dbPort ports.MongoDBPort, redisPort ports.RedisPort, firebasePor
 }
 
 func (s Service) SignUp(ctx context.Context, signupDto dto.SignupDto) (interface{}, error) {
-	logHelper.LogEvent(logHelper.InfoLog, fmt.Sprintf("attempting to sign up user %v %v", signupDto.Firstname, signupDto.Lastname))
+	logHelper.LogEvent(logHelper.InfoLog, fmt.Sprintf("attempting to sign up user %v %v", signupDto.Username, signupDto.Lastname))
 
 	if !signupDto.Agreement {
 		return nil, errorHelper.NewServiceError("You have not agreed to terms and conditions", 400)
@@ -69,7 +70,7 @@ func (s Service) SignUp(ctx context.Context, signupDto dto.SignupDto) (interface
 		UserReference: user.Reference,
 		Contact:       signupDto.Email,
 		Channel:       "email",
-		Message:       fmt.Sprintf("Hi %s, \n\n Welcome to Realtz. Ready to own/rent your first property. Kindly proceed to verify your email with this OTP: %s.", signupDto.Firstname, otp),
+		Message:       fmt.Sprintf("Hi %s, \n\n Welcome to Realtz. Ready to own/rent your first property. Kindly proceed to verify your email with this OTP: %s.", signupDto.Username, otp),
 		Subject:       "Realtz Signup Notification",
 		Type:          "in_app",
 	}
@@ -115,7 +116,7 @@ func (s Service) Login(ctx context.Context, loginDto dto.LoginDto) (interface{},
 		UserReference: user.Reference,
 		Contact:       user.Email,
 		Channel:       "email",
-		Message:       fmt.Sprintf("Welcome back %s, You logged in at %s", user.Firstname, time.Now().Format(time.RFC3339)),
+		Message:       fmt.Sprintf("Welcome back %s, You logged in at %s", user.Username, time.Now().Format(time.RFC3339)),
 		Subject:       "Realtz Login Notification",
 		Type:          "in_app",
 	}
@@ -171,7 +172,7 @@ func (s Service) SendOTP(ctx context.Context, currentUser entity.User, otpDto dt
 		UserReference: currentUser.Reference,
 		Contact:       contact,
 		Channel:       otpDto.Channel,
-		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s. Proceed to continue verification with OTP: %s.", currentUser.Firstname, otp),
+		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s. Proceed to continue verification with OTP: %s.", currentUser.Username, otp),
 		Subject:       "Realtz OTP",
 		Type:          "sending",
 	}
@@ -229,7 +230,7 @@ func (s Service) VerifyEmail(ctx context.Context, currentUser entity.User, verif
 		UserReference: user.Reference,
 		Contact:       user.Email,
 		Channel:       "email",
-		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully verified your email address. Kindly proceed to add and verify your phone number too. Kindly ignore if you have verified your phone number.", user.Firstname),
+		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully verified your email address. Kindly proceed to add and verify your phone number too. Kindly ignore if you have verified your phone number.", user.Username),
 		Subject:       "Realtz Verification Notification",
 		Type:          "in_app",
 	}
@@ -287,7 +288,7 @@ func (s Service) VerifyPhoneNumber(ctx context.Context, currentUser entity.User,
 		Contact:       user.PhoneNumber,
 		UserReference: user.Reference,
 		Channel:       "sms",
-		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s.\n\n You have succesfully verified your phone number. Kindly proceed to add and verify your email address too. Kindly ignore if you have verified your email address.", user.Firstname),
+		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s.\n\n You have succesfully verified your phone number. Kindly proceed to add and verify your email address too. Kindly ignore if you have verified your email address.", user.Username),
 		Subject:       "Realtz Verification Notification",
 		Type:          "in_app",
 	}
@@ -347,7 +348,7 @@ func (s Service) VerifyBvn(ctx context.Context, currentUser entity.User, verifyB
 		UserReference: user.Reference,
 		Contact:       user.PhoneNumber,
 		Channel:       "sms",
-		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully added and verified your bvn. Kindly proceed to add and verify your email address and phone number too. Kindly ignore if you have verified your email address/phone number.", user.Firstname),
+		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully added and verified your bvn. Kindly proceed to add and verify your email address and phone number too. Kindly ignore if you have verified your email address/phone number.", user.Username),
 		Subject:       "Realtz Verification Notification",
 		Type:          "in_app",
 	}
@@ -410,7 +411,7 @@ func (s Service) CompletePasswordRecovery(ctx context.Context, completePasswordR
 		UserReference: user.Reference,
 		Contact:       user.Email,
 		Channel:       "email",
-		Message:       fmt.Sprintf("Hi %s, \n\n. You recently changed your password. Now you can login and continue seeking your dream property.", user.Firstname),
+		Message:       fmt.Sprintf("Hi %s, \n\n. You recently changed your password. Now you can login and continue seeking your dream property.", user.Username),
 		Subject:       "Realtz Password Reset Confirmation",
 		Type:          "in_app",
 	}
@@ -484,7 +485,7 @@ func (s Service) UpdatePhoneNumber(ctx context.Context, currentUser entity.User,
 		UserReference: user.Reference,
 		Contact:       phoneNumber,
 		Channel:       "sms",
-		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s, \n\n You updated your phone number. Kindly proceed to verify your phone number with this OTP: %s.", user.Firstname, otp),
+		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s, \n\n You updated your phone number. Kindly proceed to verify your phone number with this OTP: %s.", user.Username, otp),
 		Subject:       "Realtz Verification Notification",
 	}
 
@@ -664,6 +665,69 @@ func (s Service) EditProfile(ctx context.Context, currentUser entity.User, editP
 	}
 
 	return editProfileResp, nil
+}
+
+func (s Service) RateUser(ctx context.Context, currentUser entity.User, reference, rating string) (interface{}, error) {
+	ratingInt, err := strconv.Atoi(rating)
+	if err != nil {
+		return nil, errorHelper.NewServiceError("invalid rating", 400)
+	}
+
+	foundUserToRate, err := s.dbPort.GetUserByReference(ctx, reference)
+	if err != nil {
+		return nil, err
+	}
+
+	userToRate := foundUserToRate.(entity.User)
+	if _, found := miscHelper.Found[string](userToRate.RatedBy, currentUser.Reference); found {
+		return nil, errorHelper.NewServiceError("you already rated this agent", 400)
+	}
+
+	// calculate new average rating
+	sum := 0
+	if len(userToRate.RatedBy) == 0 {
+		sum = userToRate.StarRating*1 + ratingInt
+		userToRate.StarRating = sum / 2
+	}else {
+		sum = userToRate.StarRating * len(userToRate.RatedBy) + ratingInt
+		userToRate.StarRating = sum / (len(userToRate.RatedBy) + 1)
+	}
+
+	userToRate.RatedBy = append(userToRate.RatedBy, currentUser.Reference)
+
+	s.dbPort.UpdateUser(ctx, userToRate)
+
+	eventDataToPublish := struct {
+		UserReference string `json:"user_reference" bson:"user_reference"`
+		Contact       string `json:"contact"` // phone number or email
+		Channel       string `json:"channel"` // can only one of sms|email|all
+		Message       string `json:"message"`
+		Subject       string `json:"subject"`
+		Type          string `json:"type"`
+	}{
+		UserReference: userToRate.Reference,
+		Contact:       userToRate.Email,
+		Channel:       "email",
+		Message:       fmt.Sprintf("Hi %s, \n\n You just received a star rating of %s making your average rating %d.", userToRate.Username, rating, userToRate.StarRating),
+		Subject:       "Realtz Notification",
+		Type:          "in_app",
+	}
+
+	// publish data
+	s.redisPort.PublishEvent(ctx, redisHelper.USERRATED, eventDataToPublish)
+
+	// frontend response
+	rateUserResp := struct {
+		UpdatedUser interface{} `json:"updated_user"`
+		Message     string      `json:"message"`
+		Success     bool        `json:"success"`
+	}{
+		UpdatedUser: userToRate,
+		Message:     fmt.Sprintf("you dropped a rating for %s", userToRate.Username),
+		Success:     true,
+	}
+
+	return rateUserResp, nil
 }
 
 func (s Service) Logout(token string) (interface{}, error) {
