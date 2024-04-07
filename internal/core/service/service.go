@@ -688,8 +688,8 @@ func (s Service) RateUser(ctx context.Context, currentUser entity.User, referenc
 	if len(userToRate.RatedBy) == 0 {
 		sum = userToRate.StarRating*1 + ratingInt
 		userToRate.StarRating = sum / 2
-	}else {
-		sum = userToRate.StarRating * len(userToRate.RatedBy) + ratingInt
+	} else {
+		sum = userToRate.StarRating*len(userToRate.RatedBy) + ratingInt
 		userToRate.StarRating = sum / (len(userToRate.RatedBy) + 1)
 	}
 
