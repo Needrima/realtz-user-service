@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"io"
+	"math"
 	"mime/multipart"
 	"path/filepath"
 	"realtz-user-service/internal/core/domain/dto"
@@ -684,13 +685,15 @@ func (s Service) RateUser(ctx context.Context, currentUser entity.User, referenc
 	}
 
 	// calculate new average rating
-	sum := 0
+	sum := 0.0
 	if len(userToRate.RatedBy) == 0 {
-		sum = userToRate.StarRating*1 + ratingInt
-		userToRate.StarRating = sum / 2
+		sum = float64(userToRate.StarRating*1 + ratingInt)
+		newRating := math.Ceil(sum/2)
+		userToRate.StarRating = int(newRating)
 	} else {
-		sum = userToRate.StarRating*len(userToRate.RatedBy) + ratingInt
-		userToRate.StarRating = sum / (len(userToRate.RatedBy) + 1)
+		sum = float64(userToRate.StarRating*len(userToRate.RatedBy) + ratingInt)
+		newRating := math.Ceil(sum / float64((len(userToRate.RatedBy) + 1)))
+		userToRate.StarRating = int(newRating)
 	}
 
 	userToRate.RatedBy = append(userToRate.RatedBy, currentUser.Reference)
