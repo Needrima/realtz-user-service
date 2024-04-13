@@ -182,10 +182,12 @@ func (s Service) SendOTP(ctx context.Context, currentUser entity.User, otpDto dt
 	s.redisPort.PublishEvent(ctx, redisHelper.SENDOTP, eventDataToPublish)
 
 	sendOtpResp := struct {
+		OTP string `json:"otp"`
 		OTPverificationKey string `json:"otp_verification_key"`
 		Message            string `json:"message"`
 		Success            bool   `json:"success"`
 	}{
+		OTP: otp,
 		OTPverificationKey: key,
 		Message:            "OTP sent. Please stand advised",
 		Success:            true,
@@ -242,9 +244,11 @@ func (s Service) VerifyEmail(ctx context.Context, currentUser entity.User, verif
 	}
 
 	emailVerificationResponse := struct {
+		UpdatedUser interface{} `json:"updated_user"`
 		Message string `json:"message"`
 		Success bool   `json:"success"`
 	}{
+		UpdatedUser: user,
 		Message: "email verification successful",
 		Success: true,
 	}
@@ -300,9 +304,11 @@ func (s Service) VerifyPhoneNumber(ctx context.Context, currentUser entity.User,
 	}
 
 	phoneNumberVerificationResponse := struct {
+		UpdatedUser interface{} `json:"updated_user"`
 		Message string `json:"message"`
 		Success bool   `json:"success"`
 	}{
+		UpdatedUser: user,
 		Message: "phone pumber verification successful",
 		Success: true,
 	}
