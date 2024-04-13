@@ -1177,3 +1177,6 @@
 {"@timestamp":"2024-04-08T15:47:24+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
 {"@timestamp":"2024-04-08T15:47:27+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
 {"@timestamp":"2024-04-08T15:47:53+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-04-13T22:23:01+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-04-13T22:23:05+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-04-13T22:23:08+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
