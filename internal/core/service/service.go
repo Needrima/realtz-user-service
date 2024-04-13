@@ -233,7 +233,7 @@ func (s Service) VerifyEmail(ctx context.Context, currentUser entity.User, verif
 		UserReference: user.Reference,
 		Contact:       user.Email,
 		Channel:       "email",
-		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully verified your email address. Kindly proceed to add and verify your phone number too. Kindly ignore if you have verified your phone number.", user.Username),
+		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully verified your email address. Kindly proceed to verify your phone number too. Kindly ignore if you have verified your phone number.", user.Username),
 		Subject:       "Realtz Verification Notification",
 		Type:          "in_app",
 	}
@@ -293,7 +293,7 @@ func (s Service) VerifyPhoneNumber(ctx context.Context, currentUser entity.User,
 		Contact:       user.PhoneNumber,
 		UserReference: user.Reference,
 		Channel:       "sms",
-		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s.\n\n You have succesfully verified your phone number. Kindly proceed to add and verify your email address too. Kindly ignore if you have verified your email address.", user.Username),
+		Message:       fmt.Sprintf("REALTZ NOTIFICATION\n\nHi %s.\n\n You have succesfully verified your phone number. Kindly proceed to verify your email address too. Kindly ignore if you have verified your email address.", user.Username),
 		Subject:       "Realtz Verification Notification",
 		Type:          "in_app",
 	}
@@ -355,7 +355,7 @@ func (s Service) VerifyBvn(ctx context.Context, currentUser entity.User, verifyB
 		UserReference: user.Reference,
 		Contact:       user.PhoneNumber,
 		Channel:       "sms",
-		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully added and verified your bvn. Kindly proceed to add and verify your email address and phone number too. Kindly ignore if you have verified your email address/phone number.", user.Username),
+		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully added and verified your bvn. Kindly proceed to verify your email address and phone number too. Kindly ignore if you have verified your email address/phone number.", user.Username),
 		Subject:       "Realtz Verification Notification",
 		Type:          "in_app",
 	}
