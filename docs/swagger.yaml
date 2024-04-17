@@ -158,6 +158,35 @@ definitions:
 info:
   contact: {}
 paths:
+  /auth/delete-account:
+    get:
+      consumes:
+      - application/json
+      description: Delete A Users Account and Clear out their data from the database
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User account deleted successfully
+          schema:
+            type: string
+        "404":
+          description: user doesn't exist
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Delete Account
+      tags:
+      - User
   /auth/edit-profile:
     post:
       consumes:
@@ -254,6 +283,31 @@ paths:
           schema:
             $ref: '#/definitions/helpers.ServiceError'
       summary: Logout
+      tags:
+      - User
+  /auth/rate-user/{user_reference}/{rating}:
+    get:
+      consumes:
+      - application/json
+      description: Drop a star rating for a user
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: successfully rated user
+          schema:
+            type: object
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: Rate user
       tags:
       - User
   /auth/send-otp:
