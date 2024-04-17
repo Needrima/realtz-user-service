@@ -4,6 +4,50 @@
         "contact": {}
     },
     "paths": {
+        "/auth/delete-account": {
+            "get": {
+                "description": "Delete A Users Account and Clear out their data from the database",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete Account",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication token",
+                        "name": "Token",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User account deleted successfully",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "user doesn't exist",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    },
+                    "500": {
+                        "description": "something went wrong",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    }
+                }
+            }
+        },
         "/auth/edit-profile": {
             "post": {
                 "description": "Update a user's username and/or bio",
@@ -141,6 +185,44 @@
                         "description": "user doesn't exist",
                         "schema": {
                             "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    },
+                    "500": {
+                        "description": "something went wrong",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/rate-user/{user_reference}/{rating}": {
+            "get": {
+                "description": "Drop a star rating for a user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Rate user",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication token",
+                        "name": "Token",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successfully rated user",
+                        "schema": {
+                            "type": "object"
                         }
                     },
                     "500": {

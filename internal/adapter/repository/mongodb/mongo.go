@@ -107,3 +107,14 @@ func (m mongoRepo) UpdateUser(ctx context.Context, updateUser entity.User) (inte
 
 	return "user updated successfully", nil
 }
+
+func (m mongoRepo) DeleteAccount(ctx context.Context, currentUser entity.User) (interface{}, error) {
+	if _, err := m.collection.DeleteOne(ctx, bson.M{"reference": currentUser.Reference}); err != nil {
+		logHelper.LogEvent(logHelper.ErrorLog, "could not delete user account: "+err.Error())
+		return nil, errorHelper.NewServiceError("something went wrong. try again", 500)
+	}
+
+	logHelper.LogEvent(logHelper.SuccessLog, fmt.Sprintf("successfully deleted user account for firstname: %s, lastname: %s", currentUser.Firstname, currentUser.Lastname))
+
+	return "user account deleted successfully", nil
+}

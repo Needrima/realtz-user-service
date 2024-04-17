@@ -580,6 +580,28 @@ func (h HttpHandler) RateUser(c *gin.Context) {
 	c.JSON(200, response)
 }
 
+// @Summary Delete Account
+// @Description Delete A Users Account and Clear out their data from the database
+// @Tags User
+// @Accept json
+// @Produce json
+// @Param Token header string true "Authentication token"
+// @Success 200 {string} interface{} "User account deleted successfully"
+// @Failure 500 {object} errorHelper.ServiceError "something went wrong"
+// @Failure 404 {object} errorHelper.ServiceError "user doesn't exist"
+// @Router /auth/delete-account [get]
+func (h HttpHandler) DeleteAccount(c *gin.Context) {
+	currentUser, _ := tokenHelper.ValidateToken(c.GetHeader("Token"))
+
+	response, err := h.httpPort.DeleteAccount(c.Request.Context(), *currentUser)
+	if err != nil {
+		c.AbortWithStatusJSON(err.(errorHelper.ServiceError).Code, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(200, response)
+}
+
 // @Summary Logout
 // @Description Unauthnticate a user
 // @Tags User

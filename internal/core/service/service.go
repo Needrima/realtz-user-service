@@ -182,12 +182,12 @@ func (s Service) SendOTP(ctx context.Context, currentUser entity.User, otpDto dt
 	s.redisPort.PublishEvent(ctx, redisHelper.SENDOTP, eventDataToPublish)
 
 	sendOtpResp := struct {
-		OTP string `json:"otp"`
+		OTP                string `json:"otp"`
 		OTPverificationKey string `json:"otp_verification_key"`
 		Message            string `json:"message"`
 		Success            bool   `json:"success"`
 	}{
-		OTP: otp,
+		OTP:                otp,
 		OTPverificationKey: key,
 		Message:            "OTP sent. Please stand advised",
 		Success:            true,
@@ -245,12 +245,12 @@ func (s Service) VerifyEmail(ctx context.Context, currentUser entity.User, verif
 
 	emailVerificationResponse := struct {
 		UpdatedUser interface{} `json:"updated_user"`
-		Message string `json:"message"`
-		Success bool   `json:"success"`
+		Message     string      `json:"message"`
+		Success     bool        `json:"success"`
 	}{
 		UpdatedUser: user,
-		Message: "email verification successful",
-		Success: true,
+		Message:     "email verification successful",
+		Success:     true,
 	}
 
 	return emailVerificationResponse, nil
@@ -305,12 +305,12 @@ func (s Service) VerifyPhoneNumber(ctx context.Context, currentUser entity.User,
 
 	phoneNumberVerificationResponse := struct {
 		UpdatedUser interface{} `json:"updated_user"`
-		Message string `json:"message"`
-		Success bool   `json:"success"`
+		Message     string      `json:"message"`
+		Success     bool        `json:"success"`
 	}{
 		UpdatedUser: user,
-		Message: "phone pumber verification successful",
-		Success: true,
+		Message:     "phone pumber verification successful",
+		Success:     true,
 	}
 
 	return phoneNumberVerificationResponse, nil
@@ -694,7 +694,7 @@ func (s Service) RateUser(ctx context.Context, currentUser entity.User, referenc
 	sum := 0.0
 	if len(userToRate.RatedBy) == 0 {
 		sum = float64(userToRate.StarRating*1 + ratingInt)
-		newRating := math.Ceil(sum/2)
+		newRating := math.Ceil(sum / 2)
 		userToRate.StarRating = int(newRating)
 	} else {
 		sum = float64(userToRate.StarRating*len(userToRate.RatedBy) + ratingInt)
@@ -737,6 +737,34 @@ func (s Service) RateUser(ctx context.Context, currentUser entity.User, referenc
 	}
 
 	return rateUserResp, nil
+}
+
+func (s Service) DeleteAccount(ctx context.Context, currentUser entity.User) (interface{}, error) {
+	_, err := s.dbPort.DeleteAccount(ctx, currentUser)
+	if err != nil {
+		return nil, err
+	}
+
+	// create event data to publish
+	eventDataToPublish := struct {
+		UserReference string `json:"user_reference" bson:"user_reference"`
+	}{
+		UserReference: currentUser.Reference,
+	}
+
+	// publish data
+	s.redisPort.PublishEvent(ctx, redisHelper.ACCOUNTDELETED, eventDataToPublish)
+
+	// frontend response
+	deleteAccountResp := struct {
+		Message string `json:"message"`
+		Success bool   `json:"success"`
+	}{
+		Message: "user account deleted successfully",
+		Success: true,
+	}
+
+	return deleteAccountResp, nil
 }
 
 func (s Service) Logout(token string) (interface{}, error) {
