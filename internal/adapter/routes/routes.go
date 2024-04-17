@@ -43,6 +43,7 @@ func SetupRouter(handler handler.HttpHandler) *gin.Engine {
 		userApiAuthGroup.POST("/upload-profile-image", handler.UploadProfileImage)
 		userApiAuthGroup.POST("/edit-profile", handler.EditProfile)
 		userApiAuthGroup.GET("/rate-user/:user_reference/:rating", handler.RateUser)
+		userApiAuthGroup.GET("/delete-account", handler.DeleteAccount)
 		userApiAuthGroup.GET("/logout", handler.Logout)
 	}
 

@@ -739,6 +739,34 @@ func (s Service) RateUser(ctx context.Context, currentUser entity.User, referenc
 	return rateUserResp, nil
 }
 
+func (s Service) DeleteAccount(ctx context.Context, currentUser entity.User) (interface{}, error) {
+	_, err := s.dbPort.DeleteAccount(ctx, currentUser)
+	if err != nil {
+		return nil, err
+	}
+
+	// create event data to publish
+	eventDataToPublish := struct {
+		UserReference string `json:"user_reference" bson:"user_reference"`
+	}{
+		UserReference: currentUser.Reference,
+	}
+
+	// publish data
+	s.redisPort.PublishEvent(ctx, redisHelper.ACCOUNTDELETED, eventDataToPublish)
+
+	// frontend response
+	deleteAccountResp := struct {
+		Message     string      `json:"message"`
+		Success     bool        `json:"success"`
+	}{
+		Message:     "user account deleted successfully",
+		Success:     true,
+	}
+
+	return deleteAccountResp, nil
+}
+
 func (s Service) Logout(token string) (interface{}, error) {
 	tokenHelper.RevokeToken(token)
 
