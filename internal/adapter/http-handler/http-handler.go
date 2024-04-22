@@ -597,6 +597,47 @@ func (h HttpHandler) ChangePassword(c *gin.Context) {
 	c.JSON(200, response)
 }
 
+// @Summary change user type to agent
+// @Description Switch a user to an agent
+// @Tags User
+// @Accept json
+// @Produce json
+// @Param Token header string true "Authentication token"
+// @Success 200 {object} interface{} "swtitching user to an agent successful"
+// @Failure 400 {object} errorHelper.ServiceError "invalid BVN or BVN does not belong to user"
+// @Failure 500 {object} errorHelper.ServiceError "something went wrong"
+// @Param requestBody body dto.SwitchToAgentDto true "change password request body"
+// @Router /auth//switch-to-agent [post]
+func (h HttpHandler) SwitchToAgentAccount(c *gin.Context) {
+	body := dto.SwitchToAgentDto{}
+	if err := c.BindJSON(&body); err != nil {
+		logHelper.LogEvent(logHelper.ErrorLog, "binding edit profile request body: "+err.Error())
+		if validationErrs, ok := err.(validator.ValidationErrors); ok {
+			errFields := []string{}
+			for _, valErr := range validationErrs {
+				errFields = append(errFields, valErr.Field())
+			}
+
+			c.AbortWithStatusJSON(400, gin.H{"error": "invalid input in fields: " + strings.Join(errFields, ",")})
+			return
+		}
+
+		c.AbortWithStatusJSON(400, gin.H{"error": "invalid request body: " + err.Error()})
+		return
+	}
+
+	// get user from jwt-token
+	currentUser, _ := tokenHelper.ValidateToken(c.GetHeader("Token"))
+
+	response, err := h.httpPort.SwitchToAgentDto(c.Request.Context(), *currentUser, body)
+	if err != nil {
+		c.AbortWithStatusJSON(err.(errorHelper.ServiceError).Code, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(200, response)
+}
+
 // @Summary Rate user
 // @Description Drop a star rating for a user
 // @Tags User

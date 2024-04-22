@@ -75,3 +75,7 @@ type ChangePasswordDto struct {
 	NewPassword     string `json:"new_password" bson:"new_password" binding:"required,valid_password"`
 	ConfirmPassword string `json:"confirm_password" bson:"confirm_password" binding:"required,eqfield=NewPassword"`
 }
+
+type SwitchToAgentDto struct {
+	BVN string `json:"bvn" bson:"bvn" binding:"required,len=11"`
+}
