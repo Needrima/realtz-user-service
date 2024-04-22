@@ -1180,3 +1180,23 @@
 {"@timestamp":"2024-04-13T22:23:01+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
 {"@timestamp":"2024-04-13T22:23:05+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
 {"@timestamp":"2024-04-13T22:23:08+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-04-22T17:32:53+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-04-22T17:32:56+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-04-22T17:32:58+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-04-22T17:35:43+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-04-22T17:35:46+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-04-22T17:35:47+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-04-22T17:57:10+01:00","level":"ERROR","app_name":"realtz-user-service","message":"could not validate jwt token: token contains an invalid number of segments"}
+{"@timestamp":"2024-04-22T17:57:28+01:00","level":"ERROR","app_name":"realtz-user-service","message":"binding edit profile request body: Key: 'ChangePasswordDto.NewPassword' Error:Field validation for 'NewPassword' failed on the 'valid_password' tag\nKey: 'ChangePasswordDto.ConfirmPassword' Error:Field validation for 'ConfirmPassword' failed on the 'eqfield' tag"}
+{"@timestamp":"2024-04-22T17:58:00+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-04-22T17:58:56+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-04-22T17:58:59+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-04-22T17:59:00+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-04-22T17:59:06+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-04-22T17:59:38+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-04-22T17:59:43+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2024-04-22T18:00:21+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-04-22T18:00:28+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-04-22T18:00:43+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-04-22T18:01:03+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-04-22T18:01:07+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}

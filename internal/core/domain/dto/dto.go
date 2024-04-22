@@ -69,3 +69,9 @@ type EditProfileDto struct {
 	Username string `json:"username,omitempty" bson:"username" binding:"valid_username"`
 	Bio      string `json:"bio,omitempty" bson:"bio"` // should be a minimum of 10 characters`
 }
+
+type ChangePasswordDto struct {
+	CurrentPassword string `json:"current_password" bson:"current_password" binding:"required"`
+	NewPassword     string `json:"new_password" bson:"new_password" binding:"required,valid_password"`
+	ConfirmPassword string `json:"confirm_password" bson:"confirm_password" binding:"required,eqfield=NewPassword"`
+}

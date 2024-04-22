@@ -674,6 +674,56 @@ func (s Service) EditProfile(ctx context.Context, currentUser entity.User, editP
 	return editProfileResp, nil
 }
 
+func (s Service) ChangePassword(ctx context.Context, currentUser entity.User, changePasswordDto dto.ChangePasswordDto) (interface{}, error) {
+
+	foundUser, err := s.dbPort.GetUserByReference(ctx, currentUser.Reference)
+	if err != nil {
+		return nil, err
+	}
+
+	user := foundUser.(entity.User)
+
+	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(changePasswordDto.CurrentPassword)); err != nil {
+		return nil, errorHelper.NewServiceError("incorrect current password", 409)
+	}
+
+	newPasswordHash, _ := bcrypt.GenerateFromPassword([]byte(changePasswordDto.NewPassword), bcrypt.DefaultCost)
+
+	user.Password = string(newPasswordHash)
+	user.LastUpdatedOn = time.Now().Format(time.RFC3339)
+
+	s.dbPort.UpdateUser(ctx, user)
+
+	eventDataToPublish := struct {
+		UserReference string `json:"user_reference" bson:"user_reference"`
+		Contact       string `json:"contact"` // phone number or email
+		Channel       string `json:"channel"` // can only one of sms|email|all
+		Message       string `json:"message"`
+		Subject       string `json:"subject"`
+		Type          string `json:"type"`
+	}{
+		UserReference: user.Reference,
+		Contact:       user.Email,
+		Channel:       "email",
+		Message:       fmt.Sprintf("Hi %s, \n\n. You recently changed your password. Now you can login and continue seeking your dream property.", user.Username),
+		Subject:       "Realtz Password Reset Confirmation",
+		Type:          "in_app",
+	}
+
+	// publish data
+	s.redisPort.PublishEvent(ctx, redisHelper.PASSWORDRESET, eventDataToPublish)
+
+	changePasswordResponse := struct {
+		Message string `json:"message"`
+		Success bool   `json:"success"`
+	}{
+		Message: "password change successful",
+		Success: true,
+	}
+
+	return changePasswordResponse, nil
+}
+
 func (s Service) RateUser(ctx context.Context, currentUser entity.User, reference, rating string) (interface{}, error) {
 	ratingInt, err := strconv.Atoi(rating)
 	if err != nil {
