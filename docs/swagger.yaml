@@ -108,6 +108,13 @@ definitions:
     required:
     - email
     type: object
+  dto.SwitchToAgentDto:
+    properties:
+      bvn:
+        type: string
+    required:
+    - bvn
+    type: object
   dto.UpdatePhoneNumberDto:
     properties:
       phone_number:
@@ -387,6 +394,41 @@ paths:
           schema:
             $ref: '#/definitions/helpers.ServiceError'
       summary: Send OTP
+      tags:
+      - User
+  /auth/switch-to-agent:
+    post:
+      consumes:
+      - application/json
+      description: Switch a user to an agent
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: change password request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.SwitchToAgentDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: swtitching user to an agent successful
+          schema:
+            type: object
+        "400":
+          description: invalid BVN or BVN does not belong to user
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: change user type to agent
       tags:
       - User
   /auth/update-phone:

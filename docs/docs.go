@@ -346,6 +346,59 @@ const docTemplate = `{
                 }
             }
         },
+        "/auth/switch-to-agent": {
+            "post": {
+                "description": "Switch a user to an agent",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "change user type to agent",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication token",
+                        "name": "Token",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "change password request body",
+                        "name": "requestBody",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.SwitchToAgentDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "swtitching user to an agent successful",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "400": {
+                        "description": "invalid BVN or BVN does not belong to user",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    },
+                    "500": {
+                        "description": "something went wrong",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    }
+                }
+            }
+        },
         "/auth/update-phone": {
             "post": {
                 "description": "Add or change user's phone number",
@@ -1005,6 +1058,17 @@ const docTemplate = `{
             ],
             "properties": {
                 "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.SwitchToAgentDto": {
+            "type": "object",
+            "required": [
+                "bvn"
+            ],
+            "properties": {
+                "bvn": {
                     "type": "string"
                 }
             }

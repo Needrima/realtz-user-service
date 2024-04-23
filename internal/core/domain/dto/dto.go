@@ -77,5 +77,5 @@ type ChangePasswordDto struct {
 }
 
 type SwitchToAgentDto struct {
-	BVN string `json:"bvn" bson:"bvn" binding:"required,len=11"`
+	BVN string `json:"bvn" bson:"bvn" binding:"required,len=11,number"`
 }

@@ -12,6 +12,7 @@ const (
 	PASSWORDRESET       = "PASSWORDRESET"
 	USERRATED           = "USERRATED"
 	ACCOUNTDELETED      = "ACCOUNTDELETED"
+	ACCOUNTSWITCH       = "ACCOUNTSWITCH"
 )
 
 // subscription channels
