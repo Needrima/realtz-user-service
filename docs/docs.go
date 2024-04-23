@@ -16,6 +16,59 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/auth/change-password": {
+            "post": {
+                "description": "Change a user's password",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "change user password",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication token",
+                        "name": "Token",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "change password request body",
+                        "name": "requestBody",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.ChangePasswordDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "password change successful",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "409": {
+                        "description": "incorrect current password",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    },
+                    "500": {
+                        "description": "something went wrong",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    }
+                }
+            }
+        },
         "/auth/delete-account": {
             "get": {
                 "description": "Delete A Users Account and Clear out their data from the database",
@@ -282,6 +335,59 @@ const docTemplate = `{
                         "description": "OTP sent successfully",
                         "schema": {
                             "type": "object"
+                        }
+                    },
+                    "500": {
+                        "description": "something went wrong",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/switch-to-agent": {
+            "post": {
+                "description": "Switch a user to an agent",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "change user type to agent",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication token",
+                        "name": "Token",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "change password request body",
+                        "name": "requestBody",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.SwitchToAgentDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "swtitching user to an agent successful",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "400": {
+                        "description": "invalid BVN or BVN does not belong to user",
+                        "schema": {
+                            "$ref": "#/definitions/helpers.ServiceError"
                         }
                     },
                     "500": {
@@ -798,6 +904,25 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "dto.ChangePasswordDto": {
+            "type": "object",
+            "required": [
+                "confirm_password",
+                "current_password",
+                "new_password"
+            ],
+            "properties": {
+                "confirm_password": {
+                    "type": "string"
+                },
+                "current_password": {
+                    "type": "string"
+                },
+                "new_password": {
+                    "type": "string"
+                }
+            }
+        },
         "dto.CompletePasswordRecoveryDto": {
             "type": "object",
             "required": [
@@ -933,6 +1058,17 @@ const docTemplate = `{
             ],
             "properties": {
                 "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.SwitchToAgentDto": {
+            "type": "object",
+            "required": [
+                "bvn"
+            ],
+            "properties": {
+                "bvn": {
                     "type": "string"
                 }
             }

@@ -26,6 +26,8 @@ type HTTPPort interface {
 	DecrementSave(ctx context.Context, reference string) (interface{}, error)
 	UploadProfileImage(ctx context.Context, currentUser entity.User, fileHeader *multipart.FileHeader) (interface{}, error)
 	EditProfile(ctx context.Context, currentUser entity.User, editProfileDto dto.EditProfileDto) (interface{}, error)
+	ChangePassword(ctx context.Context, currentUser entity.User, changePasswordDto dto.ChangePasswordDto) (interface{}, error)
+	SwitchToAgentAccount(ctx context.Context, currentUser entity.User, switchToAgentDto dto.SwitchToAgentDto) (interface{}, error)
 	RateUser(ctx context.Context, currentUser entity.User, reference, rating string) (interface{}, error)
 	DeleteAccount(ctx context.Context, currentUser entity.User) (interface{}, error)
 	Logout(token string) (interface{}, error)

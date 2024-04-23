@@ -12,7 +12,7 @@ import (
 // "time"
 )
 
-func VerifyBvn(bvn, firstname, lastname string) error {
+func VerifyBvn(bvn, firstname, lastname, phoneNumber string) error {
 	// body := map[string]interface{}{
 	// 	"number": bvn,
 	// }
@@ -96,12 +96,22 @@ func VerifyBvn(bvn, firstname, lastname string) error {
 	// // check if firstname correlates with data from identity verification
 	// bvnFirstName := userData["firstName"].(string)
 	// if !strings.EqualFold(bvnFirstName, firstname) {
+	// 	logHelper.LogEvent(logHelper.ErrorLog, "firstname does not tally with firstname from bvn: "+err.Error())
 	// 	return errorHelper.NewServiceError("bvn does not tally with user information", 400)
 	// }
 
 	// // check if firstname correlates with data from identity verification
 	// bvnLastName := userData["lastName"].(string)
 	// if !strings.EqualFold(bvnLastName, lastname) {
+	// 	logHelper.LogEvent(logHelper.ErrorLog, "lastname does not tally with lastname from bvn: "+err.Error())
+	// 	return errorHelper.NewServiceError("bvn does not tally with user information", 400)
+	// }
+
+	// // check if phonenumber correlates with data from identity verification
+	// bvnPhoneNumber := userData["phoneNumber"].(string)
+	// bvnPhoneNumber = "0" + bvnPhoneNumber[3:] // trim +234 from phone number and append "0" to it
+	// if !strings.EqualFold(bvnPhoneNumber, phoneNumber) {
+	// 	logHelper.LogEvent(logHelper.ErrorLog, "phone number does not tally with phone number from bvn: "+err.Error())
 	// 	return errorHelper.NewServiceError("bvn does not tally with user information", 400)
 	// }
 

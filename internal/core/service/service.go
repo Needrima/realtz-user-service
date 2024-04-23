@@ -329,7 +329,7 @@ func (s Service) VerifyBvn(ctx context.Context, currentUser entity.User, verifyB
 
 	user := foundUser.(entity.User)
 
-	if err := verificationHelper.VerifyBvn(verifyBvnDto.BVN, user.Firstname, user.Lastname); err != nil {
+	if err := verificationHelper.VerifyBvn(verifyBvnDto.BVN, user.Firstname, user.Lastname, user.PhoneNumber); err != nil {
 		return nil, err
 	}
 
@@ -737,6 +737,121 @@ func (s Service) RateUser(ctx context.Context, currentUser entity.User, referenc
 	}
 
 	return rateUserResp, nil
+}
+
+func (s Service) SwitchToAgentAccount(ctx context.Context, currentUser entity.User, switchToAgentDto dto.SwitchToAgentDto) (interface{}, error) {
+	foundUser, err := s.dbPort.GetUserByReference(ctx, currentUser.Reference)
+	if err != nil {
+		return nil, err
+	}
+
+	user := foundUser.(entity.User)
+
+	if user.UserType == "agent" {
+		return nil, errorHelper.NewServiceError("you are already an agent", 409)
+	}
+
+	if !user.IsEmailVerified {
+		return nil, errorHelper.NewServiceError("email address not verified, please verify your email address", 400)
+	}
+
+	if !user.IsPhoneNumberVerified {
+		return nil, errorHelper.NewServiceError("phone number not verified, please verify your phone number", 400)
+	}
+
+	if err := verificationHelper.VerifyBvn(switchToAgentDto.BVN, user.Firstname, user.Lastname, user.PhoneNumber); err != nil {
+		return nil, err
+	}
+
+	user.BVN = switchToAgentDto.BVN
+	user.IsBvnVerified = true
+
+	user.UserType = "agent"
+
+	user.LastUpdatedOn = time.Now().Format(time.RFC3339)
+
+	if _, err := s.dbPort.UpdateUser(ctx, user); err != nil {
+		return nil, err
+	}
+
+	eventDataToPublish := struct {
+		UserReference string `json:"user_reference" bson:"user_reference"`
+		Contact       string `json:"contact"` // phone number or email
+		Channel       string `json:"channel"` // can only one of sms|email|all
+		Message       string `json:"message"`
+		Subject       string `json:"subject"`
+		Type          string `json:"type"`
+	}{
+		UserReference: user.Reference,
+		Contact:       user.Email,
+		Channel:       "email",
+		Message:       fmt.Sprintf("Hi %s.\n\n You have succesfully switched to an agent account. You can now proceed to add your first property listing", user.Username),
+		Subject:       "Realtz Notification",
+		Type:          "in_app",
+	}
+
+	// publish data
+	s.redisPort.PublishEvent(ctx, redisHelper.ACCOUNTSWITCH, eventDataToPublish)
+
+	switchAccountToAgentResponse := struct {
+		Message string `json:"message"`
+		Success bool   `json:"success"`
+	}{
+		Message: "successfully switched to agent account",
+		Success: true,
+	}
+
+	return switchAccountToAgentResponse, nil
+}
+
+func (s Service) ChangePassword(ctx context.Context, currentUser entity.User, changePasswordDto dto.ChangePasswordDto) (interface{}, error) {
+
+	foundUser, err := s.dbPort.GetUserByReference(ctx, currentUser.Reference)
+	if err != nil {
+		return nil, err
+	}
+
+	user := foundUser.(entity.User)
+
+	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(changePasswordDto.CurrentPassword)); err != nil {
+		return nil, errorHelper.NewServiceError("incorrect current password", 409)
+	}
+
+	newPasswordHash, _ := bcrypt.GenerateFromPassword([]byte(changePasswordDto.NewPassword), bcrypt.DefaultCost)
+
+	user.Password = string(newPasswordHash)
+	user.LastUpdatedOn = time.Now().Format(time.RFC3339)
+
+	s.dbPort.UpdateUser(ctx, user)
+
+	eventDataToPublish := struct {
+		UserReference string `json:"user_reference" bson:"user_reference"`
+		Contact       string `json:"contact"` // phone number or email
+		Channel       string `json:"channel"` // can only one of sms|email|all
+		Message       string `json:"message"`
+		Subject       string `json:"subject"`
+		Type          string `json:"type"`
+	}{
+		UserReference: user.Reference,
+		Contact:       user.Email,
+		Channel:       "email",
+		Message:       fmt.Sprintf("Hi %s, \n\n. You recently changed your password. Now you can login and continue seeking your dream property.", user.Username),
+		Subject:       "Realtz Password Reset Confirmation",
+		Type:          "in_app",
+	}
+
+	// publish data
+	s.redisPort.PublishEvent(ctx, redisHelper.PASSWORDRESET, eventDataToPublish)
+
+	changePasswordResponse := struct {
+		Message string `json:"message"`
+		Success bool   `json:"success"`
+	}{
+		Message: "password change successful",
+		Success: true,
+	}
+
+	return changePasswordResponse, nil
 }
 
 func (s Service) DeleteAccount(ctx context.Context, currentUser entity.User) (interface{}, error) {

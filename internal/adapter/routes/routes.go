@@ -42,6 +42,8 @@ func SetupRouter(handler handler.HttpHandler) *gin.Engine {
 		userApiAuthGroup.GET("/get-user/:user_reference", handler.GetUserByReference)
 		userApiAuthGroup.POST("/upload-profile-image", handler.UploadProfileImage)
 		userApiAuthGroup.POST("/edit-profile", handler.EditProfile)
+		userApiAuthGroup.POST("/change-password", handler.ChangePassword)
+		userApiAuthGroup.POST("/switch-to-agent", handler.SwitchToAgentAccount)
 		userApiAuthGroup.GET("/rate-user/:user_reference/:rating", handler.RateUser)
 		userApiAuthGroup.GET("/delete-account", handler.DeleteAccount)
 		userApiAuthGroup.GET("/logout", handler.Logout)

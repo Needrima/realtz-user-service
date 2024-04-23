@@ -1,4 +1,17 @@
 definitions:
+  dto.ChangePasswordDto:
+    properties:
+      confirm_password:
+        type: string
+      current_password:
+        type: string
+      new_password:
+        type: string
+    required:
+    - confirm_password
+    - current_password
+    - new_password
+    type: object
   dto.CompletePasswordRecoveryDto:
     properties:
       confirm_password:
@@ -95,6 +108,13 @@ definitions:
     required:
     - email
     type: object
+  dto.SwitchToAgentDto:
+    properties:
+      bvn:
+        type: string
+    required:
+    - bvn
+    type: object
   dto.UpdatePhoneNumberDto:
     properties:
       phone_number:
@@ -158,6 +178,41 @@ definitions:
 info:
   contact: {}
 paths:
+  /auth/change-password:
+    post:
+      consumes:
+      - application/json
+      description: Change a user's password
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: change password request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ChangePasswordDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: password change successful
+          schema:
+            type: object
+        "409":
+          description: incorrect current password
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: change user password
+      tags:
+      - User
   /auth/delete-account:
     get:
       consumes:
@@ -339,6 +394,41 @@ paths:
           schema:
             $ref: '#/definitions/helpers.ServiceError'
       summary: Send OTP
+      tags:
+      - User
+  /auth/switch-to-agent:
+    post:
+      consumes:
+      - application/json
+      description: Switch a user to an agent
+      parameters:
+      - description: Authentication token
+        in: header
+        name: Token
+        required: true
+        type: string
+      - description: change password request body
+        in: body
+        name: requestBody
+        required: true
+        schema:
+          $ref: '#/definitions/dto.SwitchToAgentDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: swtitching user to an agent successful
+          schema:
+            type: object
+        "400":
+          description: invalid BVN or BVN does not belong to user
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+        "500":
+          description: something went wrong
+          schema:
+            $ref: '#/definitions/helpers.ServiceError'
+      summary: change user type to agent
       tags:
       - User
   /auth/update-phone:
