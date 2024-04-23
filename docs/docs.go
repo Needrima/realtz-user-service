@@ -346,7 +346,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/auth/switch-to-agent": {
+        "/auth/switch-to-agent-account": {
             "post": {
                 "description": "Switch a user to an agent",
                 "consumes": [

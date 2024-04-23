@@ -396,7 +396,7 @@ paths:
       summary: Send OTP
       tags:
       - User
-  /auth/switch-to-agent:
+  /auth/switch-to-agent-account:
     post:
       consumes:
       - application/json
