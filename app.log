@@ -1555,3 +1555,63 @@
 {"@timestamp":"2024-06-15T14:06:36+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
 {"@timestamp":"2024-06-15T14:06:40+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
 {"@timestamp":"2024-06-15T14:07:02+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-06-15T14:07:07+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-06-15T14:07:09+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-06-15T14:08:05+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-06-15T14:08:30+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to mongoDB: error parsing uri: lookup _mongodb._tcp.e-shop-test.csoa6.mongodb.net on 192.168.234.203:53: read udp 192.168.234.196:54954-\u003e192.168.234.203:53: i/o timeout"}
+{"@timestamp":"2024-06-15T14:11:08+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-06-15T14:11:22+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-06-15T14:11:25+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-06-15T14:14:28+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: oyebodeamirdeen@gmail.co, error: mongo: no documents in result"}
+{"@timestamp":"2024-06-15T14:14:38+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-06-16T17:17:32+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-06-16T17:17:35+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-06-16T17:17:37+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-07-07T02:59:51+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-07-07T02:59:55+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-07-07T02:59:55+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp: lookup redis-13068.c74.us-east-1-4.ec2.redns.redis-cloud.com: no such host"}
+{"@timestamp":"2024-07-07T03:00:40+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-07-07T03:00:42+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-07-07T03:00:42+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp: lookup redis-13068.c74.us-east-1-4.ec2.redns.redis-cloud.com: no such host"}
+{"@timestamp":"2024-07-07T03:00:42+01:00","level":"DANGER","app_name":"realtz-user-service","message":"setting revoked tokens key in redis: dial tcp: lookup redis-13068.c74.us-east-1-4.ec2.redns.redis-cloud.com: no such host"}
+{"@timestamp":"2024-07-07T03:00:42+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-07-07T03:01:05+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-07T03:01:05+01:00","level":"ERROR","app_name":"realtz-user-service","message":"could not publish event: dial tcp: lookup redis-13068.c74.us-east-1-4.ec2.redns.redis-cloud.com: no such host"}
+{"@timestamp":"2024-07-07T03:02:33+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-07-07T03:02:46+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-07-07T03:02:46+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to redis: dial tcp: lookup redis-13068.c74.us-east-1-4.ec2.redns.redis-cloud.com: no such host"}
+{"@timestamp":"2024-07-10T11:24:46+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-07-10T11:25:01+01:00","level":"DANGER","app_name":"realtz-user-service","message":"could not connect to mongoDB: error parsing uri: lookup _mongodb._tcp.e-shop-test.csoa6.mongodb.net on 192.168.211.50:53: no such host"}
+{"@timestamp":"2024-07-10T11:25:46+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-07-10T11:25:49+01:00","level":"INFO","app_name":"realtz-user-service","message":"Establishing Redis connection"}
+{"@timestamp":"2024-07-10T11:25:51+01:00","level":"INFO","app_name":"realtz-user-service","message":"starting server on port 30000"}
+{"@timestamp":"2024-07-10T11:26:14+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T11:26:24+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T11:26:44+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T11:28:14+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T11:28:38+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T11:29:12+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T11:29:23+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T11:29:51+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T11:30:28+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T11:32:18+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T11:33:11+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T11:33:34+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T11:48:05+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T12:07:51+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T12:13:24+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T12:14:45+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: oyebdoeamirdeen@gmail.com, error: mongo: no documents in result"}
+{"@timestamp":"2024-07-10T12:15:00+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T12:22:21+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T12:25:22+01:00","level":"INFO","app_name":"realtz-user-service","message":"received data from channle: PRODUCTADDED"}
+{"@timestamp":"2024-07-10T12:25:23+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with reference: 46fee48b-4e03-4cad-b229-19ea8c0cbe0c"}
+{"@timestamp":"2024-07-10T12:25:23+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully updated user firstname: Amirdeen, lastname: Oyebode"}
+{"@timestamp":"2024-07-10T12:26:30+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T12:31:56+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T12:32:50+01:00","level":"ERROR","app_name":"realtz-user-service","message":"cannot find user with email: oyebdoeamirdeen@gmail.com, error: mongo: no documents in result"}
+{"@timestamp":"2024-07-10T12:33:09+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T12:33:38+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T12:39:42+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T12:39:51+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T12:39:56+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
+{"@timestamp":"2024-07-10T15:25:48+01:00","level":"SUCCESS","app_name":"realtz-user-service","message":"successfully retrieved user with email: oyebodeamirdeen@gmail.com"}
